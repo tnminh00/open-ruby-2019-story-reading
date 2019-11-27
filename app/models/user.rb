@@ -11,4 +11,6 @@ class User < ApplicationRecord
   validates :password, presence: true,
     length: {minimum: Settings.password.minimum}, allow_nil: true
   has_secure_password
+
+  USER_PARAMS = %i(name email password password_confirmation).freeze
 end

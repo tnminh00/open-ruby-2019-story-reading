@@ -16,3 +16,17 @@ en:
   home_page:
     home:
       home: "Home"
+  users:
+    new:
+      signup: "Sign up"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      confirm: "Password Confirmation"
+      create: "Create my account"
+    create:
+      success: "Sign up success."
+  shared:
+    error_messages:
+      form: "The form contains"
+      error: "error"
