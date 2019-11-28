@@ -95,6 +95,9 @@ h1 {
   line-height: 1.8;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
+  .center {
+    text-align: center;
+  }
 }
 
 p {
@@ -136,14 +139,46 @@ p {
   }
 }
 
-#right{
-  float: right;
-}
-
 p {
   text-align: center;
 }
 
 #form_search {
   width: 50%;
+}
+
+.signup {
+  margin-top: 20px;
+  h1 {
+    text-align: center;
+  }
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid $gray;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto;
+}
+
+#error_explanation {
+  color: $red;
+  ul {
+    float: left;
+    text-align: left;
+    color: $red;
+    margin: 0 0 30px 0;
+    li {
+      list-style: disc;
+    }
+  }
+}
+
+.field_with_errors {
+  .form-control {
+    color: $state-danger-text;
+  }
 }
