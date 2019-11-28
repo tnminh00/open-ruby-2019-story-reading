@@ -1,2 +1,18 @@
 en:
-  hello: "Hello world"
+  layouts:
+    header:
+      home: "Home"
+      stories: "Stories"
+      follows: "Follows"
+      history: "History"
+      categories: "Categories"
+      signup: "Sign up"
+      login: "Login"
+      logo: "Storyx2"
+      title: "Story Story"
+      search: "Search..."
+    footer:
+      logo: "Storyx2"
+  home_page:
+    home:
+      home: "Home"
