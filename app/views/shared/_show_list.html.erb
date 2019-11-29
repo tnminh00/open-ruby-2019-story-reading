@@ -1,0 +1,10 @@
+<div class="row col-md-12 story_content">
+  <% objects.each do |object| %>
+    <div class="col-md-3">
+      <%= link_to object do %>
+        <%= image_tag Settings.story_image %><br><%= object.name %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= paginate objects, theme: Settings.theme %>

@@ -11,3 +11,4 @@ number_stories: 12
 perpage: 24
 paragraph: 5
 date_format: "%d/%m/%Y"
+sample: 2

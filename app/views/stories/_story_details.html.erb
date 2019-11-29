@@ -12,6 +12,14 @@
     <td><%= @story.introduction %></td>
   </tr>
   <tr>
+    <th><%=  t ".categories" %></th>
+    <td>
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category_path(category) %> |
+      <% end %>
+    </td>
+  </tr>
+  <tr>
     <th><%=  t ".total_view" %></th>
     <td><%= @story.total_view %></td>
   </tr>

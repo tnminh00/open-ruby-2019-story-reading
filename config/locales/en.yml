@@ -51,3 +51,11 @@ en:
       total_view: "Total View: "
       chapter: "Chapter"
       update_time: "Update time"
+      categories: "Categories"
+  date_format: "%d/%m/%Y"
+  categories:
+    index:
+      title: "Categories"
+    show:
+      category: "Category: "
+      danger: "Category not found"
