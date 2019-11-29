@@ -4,7 +4,7 @@ en:
       home: "Home"
       stories: "Stories"
       follows: "Follows"
-      history: "History"
+      histories: "History"
       categories: "Categories"
       signup: "Sign up"
       login: "Login"
@@ -17,6 +17,7 @@ en:
   home_page:
     home:
       home: "Home"
+      title: "Storyx2"
   users:
     new:
       signup: "Sign up"
@@ -44,6 +45,7 @@ en:
     index:
       title: "Stories"
       new: "Add new story"
+      search: "Search...."
     show:
       not_found: "Story not found."
       name: "Name: "
@@ -100,12 +102,14 @@ en:
   search:
     index:
       title: "Story"
+      search: "Search..."
   chapters:
     show:
       next: "Next Chapter"
       previous: "Previous Chapter"
       chapter: "Chapter"
       danger: "Chapter not found"
+      title: "Storyx2"
     destroy:
       del_success: "Delete chapter success."
       del_fail: "Delete chapter fail."

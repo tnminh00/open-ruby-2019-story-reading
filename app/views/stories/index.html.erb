@@ -1,10 +1,15 @@
 <div class="center">
-  <h1>
-    <%= t ".title" %>
-    <%= link_to t(".new"), new_story_path, class: "btn btn-primary" if current_user&.is_admin? %>
-  </h1>
+  <h1><%= t ".title" %></h1>
   <div class="row col-md-12 story_content">
+    <div class="row">
+      <%= form_tag search_index_path, method: :get do %>
+        <%= text_field_tag :form_search, params[:name], autocomplete: :off,
+          class: "col-md-offset-3 form-control", placeholder: t(".search") %>
+      <% end %> 
+    </div>
     <%= render @stories %>
   </div>
-  <%= paginate @stories, theme: Settings.theme %>
+  <div class="paginate">
+    <%= paginate @stories, theme: Settings.theme %>
+  </div>
 </div>
