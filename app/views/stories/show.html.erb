@@ -3,9 +3,11 @@
     <h1>
       <%= @story.name %>
       <% if current_user&.is_admin? %>
-        <%= link_to t(".edit"), edit_story_path(@story), class: "btn btn-danger" %>
+        <%= link_to t(".edit"), edit_story_path(@story), class: "btn btn-primary" %>
         <%= link_to t(".delete"), @story, method: :delete,
-          class: "btn btn-primary", data: {confirm: t(".confirm")} %>
+          class: "btn btn-danger", data: {confirm: t(".confirm")} %>
+        <%= link_to t(".add_chapter"), new_chapter_path(story_id: @story.id),
+          class: "btn btn-primary", id: "add_chapter" %>
       <% end %>
     </h1>
   </div>
@@ -17,7 +19,7 @@
       <%= render "story_details" %>  
     </div>
   </div>
-  <div class="row col-md-offset-1 col-md-10">
+  <div class="row">
     <%= render "list_chapters" %>
   </div>
 </div>

@@ -167,6 +167,9 @@ p {
   h1 {
     text-align: center;
   }
+  .text_area {
+    min-height: 200px;
+  }
 }
 
 input, textarea, select, .uneditable-input {
@@ -208,4 +211,9 @@ input {
   span {
     margin-left: 15px;
   }
+}
+
+#add_chapter {
+  margin-right: 150px;
+  float: right;
 }
