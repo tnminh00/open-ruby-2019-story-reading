@@ -1,4 +1,5 @@
 <tr>
-  <th><%= link_to chapter.name, "#" %></th>
+  <td><%= chapter.chapter_number %>
+  <td><%= link_to chapter.name, chapter_path(chapter.id) %></td>
   <td><%= chapter.created_at.strftime Settings.date_format %></td>
 </tr>

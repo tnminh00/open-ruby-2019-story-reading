@@ -1,0 +1,15 @@
+<div class="center">
+  <h1><%= link_to @chapter.story_name, story_path(@chapter.story) %></h1>
+  <h2><%= t ".chapter" %> <%= @chapter.chapter_number %>: <%= @chapter.name %></h2>
+  <div class="row col-md-12 story_content">
+    <p><%= @chapter.content.html_safe %></p>  
+  </div>
+  <div class="row">
+    <div class="chapter_footer">
+      <h4>
+        <%= link_to t(".previous"), chapter_path(@chapter.previous_chapter) if @chapter.previous_chapter %>
+        <%= link_to t(".next"), chapter_path(@chapter.next_chapter)  if @chapter.next_chapter %>
+      </h4>
+    </div>
+  </div>
+</div>
