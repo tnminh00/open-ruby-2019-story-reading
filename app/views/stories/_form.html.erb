@@ -1,0 +1,25 @@
+<%= form_for @story do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+    
+  <%= f.label t(".name") %>
+  <%= f.text_field :name %>
+
+  <%= f.label t(".author") %>
+  <%= f.text_field :author %>
+
+  <%= f.label t(".introduction") %>
+  <%= f.text_area :introduction %>
+
+  <%= fields_for @category_stories do |f| %>
+    <div class="field">
+      <%= f.label t(".categories") %>
+      <%= collection_select :category, :ids, Category.all, :id, :name,
+        {selected: @story.categories.collect {|c| c.id}},
+          {multiple: true, class: "ui fluid selection dropdown form-control"} %>
+    </div>
+  <% end %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary col-md-offset-4 col-md-4" %>
+<% end %>
+
+<%= stylesheet_link_tag"https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css", 'data-turbolinks-track' => true %>

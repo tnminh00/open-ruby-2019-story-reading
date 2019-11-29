@@ -1,11 +1,13 @@
 <div class="center story_content">
   <div class="row">
-    <h1><%= @story.name %></h1>
-    <% if current_user&.is_admin? %>
-      <%= link_to t(".edit"), "#", class: "btn btn-danger" %>
-      <%= link_to t(".delete"), @story, method: :delete,
-        class: "btn btn-primary", data: {confirm: t(".confirm")} %>
-    <% end %>
+    <h1>
+      <%= @story.name %>
+      <% if current_user&.is_admin? %>
+        <%= link_to t(".edit"), edit_story_path(@story), class: "btn btn-danger" %>
+        <%= link_to t(".delete"), @story, method: :delete,
+          class: "btn btn-primary", data: {confirm: t(".confirm")} %>
+      <% end %>
+    </h1>
   </div>
   <div class="row">
     <div class="col-md-2">

@@ -43,6 +43,7 @@ en:
   stories:
     index:
       title: "Stories"
+      new: "Add new story"
     show:
       not_found: "Story not found."
       name: "Name: "
@@ -68,6 +69,26 @@ en:
       introduction: "Introduction: "
       categories: "Categories: "
       total_view: "Total view: "
+    new:
+      title: "Create Story"
+      name: "Name"
+      author: "Author"
+      introduction: "Introduction"
+      categories: "Categories"
+      create: "Create"
+    form:
+      name: "Name"
+      author: "Author"
+      introduction: "Introduction"
+      categories: "Categories"
+    edit:
+      title: "Edit story"
+      update: "Update"
+      not_admin: "You aren't admin."
+    update:
+      success: "Story updated."
+    create:
+      success: "Story created."
   date_format: "%d/%m/%Y"
   categories:
     index:
