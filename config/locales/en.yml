@@ -52,6 +52,12 @@ en:
       chapter: "Chapter"
       update_time: "Update time"
       categories: "Categories"
+      confirm: "Are you sure?"
+      edit: "Edit"
+      delete: "Delete"
+    destroy:
+      del_success: "Delete story success."
+      del_fail: "Delete story fail."
     list_chapters:
       update_time: "Update time"
       name: "Name"
