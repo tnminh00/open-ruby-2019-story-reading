@@ -2,7 +2,7 @@ class Chapter < ApplicationRecord
   CHAPTER_PARAMS = %i(name chapter_number content).freeze
 
   belongs_to :story
-  has_many :histories
+  has_many :histories, dependent: :destroy
   has_many :users, through: :histories
   has_many :comments, as: :commentable
   validates :name, presence: true

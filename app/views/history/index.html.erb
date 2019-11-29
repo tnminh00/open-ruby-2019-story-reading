@@ -1,0 +1,14 @@
+<div class="center">
+  <h1><%= t ".title" %></h1>
+  <div class="row story_content">
+  <% @chapters.each do |chapter| %>
+    <div class="col-md-3">
+      <%= link_to chapter do %>
+        <%= image_tag Settings.story_image %><br>
+        <%= chapter.story_name %><br>
+        (<%= t ".chapter" %> <%= chapter.chapter_number %>)
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</div>
