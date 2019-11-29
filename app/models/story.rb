@@ -1,4 +1,6 @@
 class Story < ApplicationRecord
+  STORY_PARAMS = %i(name author introduction total_view).freeze
+  
   has_many :chapters, dependent: :destroy
   has_many :category_stories
   has_many :categories, through: :category_stories

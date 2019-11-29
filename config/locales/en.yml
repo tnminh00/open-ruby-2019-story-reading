@@ -40,3 +40,6 @@ en:
     create:
       success: "Login success."
       danger: "Invalid Email/Password combination"
+  stories:
+    index:
+      title: "Stories"
