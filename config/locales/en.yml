@@ -43,3 +43,11 @@ en:
   stories:
     index:
       title: "Stories"
+    show:
+      not_found: "Story not found."
+      name: "Name: "
+      author: "Author: "
+      introduction: "Introduction: "
+      total_view: "Total View: "
+      chapter: "Chapter"
+      update_time: "Update time"

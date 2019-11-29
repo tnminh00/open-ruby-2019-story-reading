@@ -1,0 +1,14 @@
+<div class="center story_content">
+  <h1><%= @story.name %></h1>
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_tag Settings.story_image %>
+    </div>
+    <div class="col-md-9">
+      <%= render "story_details" %>  
+    </div>
+  </div>
+  <div class="row col-md-offset-1 col-md-10">
+    <%= render "list_chapters" %>
+  </div>
+</div>
