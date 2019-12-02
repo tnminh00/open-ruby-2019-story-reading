@@ -147,7 +147,7 @@ p {
   width: 50%;
 }
 
-.signup {
+.page {
   margin-top: 20px;
   h1 {
     text-align: center;
@@ -180,5 +180,17 @@ input {
 .field_with_errors {
   .form-control {
     color: $state-danger-text;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.checkbox {
+  text-align: center;
+  span {
+    margin-left: 15px;
   }
 }

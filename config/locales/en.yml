@@ -11,6 +11,7 @@ en:
       logo: "Storyx2"
       title: "Story Story"
       search: "Search..."
+      logout: "Logout"
     footer:
       logo: "Storyx2"
   home_page:
@@ -25,8 +26,17 @@ en:
       confirm: "Password Confirmation"
       create: "Create my account"
     create:
-      success: "Sign up success."
+      success: "Sign up success. Login please."
   shared:
     error_messages:
       form: "The form contains"
       error: "error"
+  sessions:
+    new:
+      login: "Login"
+      email: "Email"
+      password: "Password"
+      remember: "Remember me on this computer"
+    create:
+      success: "Login success."
+      danger: "Invalid Email/Password combination"
