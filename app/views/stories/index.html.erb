@@ -1,0 +1,8 @@
+<div class="hero"></div>
+<div class="center">
+  <h1><%= t ".title" %></h1>
+  <div class="row col-md-12 story_content">
+    <%= render @stories %>
+  </div>
+  <%= paginate @stories, theme: Settings.theme %>
+</div>
