@@ -133,11 +133,17 @@ p {
   a {
     font-size: 17px;
     margin-bottom: 20px;
-    img {
-      margin-bottom: 7px;
-      margin-top: 30px;
-      max-width: 180px;
-      width: 100%;
+  }
+  img {
+    margin-bottom: 7px;
+    margin-top: 30px;
+    max-width: 180px;
+    width: 100%;
+  }
+  table {
+    margin-top: 30px;
+    tr th {
+      font-size: 18px;
     }
   }
 }

@@ -9,3 +9,5 @@ story_image: "story_image.jpeg"
 theme: "twitter-bootstrap-3"
 number_stories: 12
 perpage: 24
+paragraph: 5
+date_format: "%d/%m/%Y"
