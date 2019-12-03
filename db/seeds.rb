@@ -9,3 +9,14 @@
     story.chapters.create!(name: name_chapter, content: content)
   end
 end
+
+50.times do
+  name = FFaker::Book.genre
+  Category.create!(name: name)  
+end
+
+Story.all.each do |s|
+  sample = Category.all.sample Settings.sample
+  s.category_stories.create category: sample.first
+  s.category_stories.create category: sample.second
+end
