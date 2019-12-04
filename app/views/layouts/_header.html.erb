@@ -25,6 +25,9 @@
     </div>
     <div class="row">
       <%= link_to t(".logo"), "#", class: "col-md-2 logo" %>
-      <%= text_field :form, :search, class: "col-md-offset-3 form-control", placeholder: t(".search") %> 
+      <%= form_tag search_index_path, method: :get do %>
+        <%= text_field_tag :form_search, params[:name], autocomplete: :off,
+          class: "col-md-offset-3 form-control", placeholder: t(".search") %>
+      <% end %> 
     </div>
 </header>

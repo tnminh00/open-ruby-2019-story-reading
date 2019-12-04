@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :stories
+  resources :search, only: :index
   resources :categories, only: %i(index show)
 end

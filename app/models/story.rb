@@ -8,4 +8,6 @@ class Story < ApplicationRecord
   has_many :follows
   has_many :users, through: :follows
   has_many :rates
+
+  scope :search_by_name, -> name {where "name like ?", "#{name}%"}
 end
