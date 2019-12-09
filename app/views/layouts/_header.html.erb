@@ -13,7 +13,7 @@
       <nav class="col-md-6">
         <ul>
           <% if logged_in? %>
-            <li><%= current_user.name %></li>
+            <li id="user_name"><%= current_user.name %></li>
             <li><%= link_to t(".logout"), logout_path, 
               method: :delete %></li>
           <% else %>

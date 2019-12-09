@@ -1,6 +1,8 @@
-<div class="hero"></div>
 <div class="center">
-  <h1><%= t ".title" %></h1>
+  <h1>
+    <%= t ".title" %>
+    <%= link_to t(".new"), new_story_path, class: "btn btn-primary" if current_user&.is_admin? %>
+  </h1>
   <div class="row col-md-12 story_content">
     <%= render @stories %>
   </div>

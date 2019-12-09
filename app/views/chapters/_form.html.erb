@@ -1,0 +1,16 @@
+<%= form_for @chapter do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="col-md-4">
+    <%= f.label t(".chapter_number"), class: "col-md-12" %>
+    <%= f.text_field :chapter_number, class: "form-control" %>
+  </div>
+  <div class="col-md-8">
+    <%= f.label t(".name"), class: "col-md-12" %>
+    <%= f.text_field :name, class: "form-control" %> 
+  </div>
+  <div class="col-md-12">
+    <%= f.label t(".content"), class: "col-md-12" %>
+    <%= f.cktext_area :content %>
+  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-primary col-md-offset-4 col-md-4" %>
+<% end %>
