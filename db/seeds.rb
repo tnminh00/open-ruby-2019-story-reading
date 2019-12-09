@@ -4,9 +4,13 @@
   introduction = FFaker::Lorem.paragraph
   story = Story.create(name: name, author: author, introduction: introduction)
   10.times do |n|
-    name_chapter = "Chapter #{n+1}: " + FFaker::Book.title
-    content = FFaker::Lorem.paragraphs Settings.paragraph
-    story.chapters.create!(name: name_chapter, content: content)
+    name_chapter = FFaker::Book.title
+    paragraph = FFaker::Lorem.paragraphs Settings.paragraph
+    content = ""
+    paragraph.each do |p|
+      content = content + "&emsp;&emsp;" + p + "<br><br>"
+    end
+    story.chapters.create!(name: name_chapter, content: content, chapter_number: n+1)
   end
 end
 

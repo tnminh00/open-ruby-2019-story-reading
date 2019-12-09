@@ -52,6 +52,16 @@ en:
       chapter: "Chapter"
       update_time: "Update time"
       categories: "Categories"
+    list_chapters:
+      update_time: "Update time"
+      name: "Name"
+      chapter: "Chapter"
+    story_details:
+      name: "Name: "
+      author: "Author: "
+      introduction: "Introduction: "
+      categories: "Categories: "
+      total_view: "Total view: "
   date_format: "%d/%m/%Y"
   categories:
     index:
@@ -62,3 +72,9 @@ en:
   search:
     index:
       title: "Story"
+  chapters:
+    show:
+      next: "Next Chapter"
+      previous: "Previous Chapter"
+      chapter: "Chapter"
+      danger: "Chapter not found"
