@@ -1,13 +1,15 @@
-<% provide :button_text, t(".update") %>
+<% provide :button_text, t(".create") %>
 <div class="row page">
   <h1><%= t ".title" %></h1>
   <div class="col-md-offset-2 col-md-8">
     <%= form_for @chapter do |f| %>
       <%= render "shared/error_messages", object: f.object %>
       <div class="col-md-12">
-        <%= f.label t(".story"), class: "col-md-12" %>
-        <%= f.collection_select :story_id, Story.all, :id, :name,
-          {selected: @chapter.story.id}, {class: "form-control", disabled: true} %>
+        <%= fields_for @story do |f| %>
+          <%= f.label t(".story"), class: "col-md-12" %>
+          <%= collection_select :story, :id, Story.all, :id, :name,
+            {selected: params[:story_id]}, {class: "form-control"} %>
+        <% end %>
       </div>
       <div class="col-md-4">
         <%= f.label t(".chapter_number"), class: "col-md-12" %>
@@ -21,7 +23,7 @@
         <%= f.label t(".content"), class: "col-md-12" %>
         <%= f.cktext_area :content %>
       </div>
-      <%= f.submit t(".update"), class: "btn btn-primary col-md-offset-4 col-md-4" %>
-  <% end %>
+      <%= f.submit yield(:button_text), class: "btn btn-primary col-md-offset-4 col-md-4" %>
+    <% end %>
   </div>
 </div>

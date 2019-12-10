@@ -7,7 +7,7 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @chapters = @story.chapters.page params[:page]
+    @chapters = @story.chapters.order_chapter.page(params[:page]).per Settings.perpage
     @categories = @story.categories.page(params[:page]).per Settings.perpage 
   end
 

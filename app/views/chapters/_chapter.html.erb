@@ -1,5 +1,12 @@
 <tr>
   <td><%= chapter.chapter_number %>
   <td><%= link_to chapter.name, chapter_path(chapter.id) %></td>
-  <td><%= chapter.created_at.strftime Settings.date_format %></td>
+  <td><%= chapter.date_time %></td>
+  <td>
+    <% if current_user&.is_admin? %>
+      <%= link_to t(".edit"), edit_chapter_path(chapter.id), class: "btn btn-primary" %>
+      <%= link_to t(".delete"), chapter, method: :delete,
+        class: "btn btn-danger", data: {confirm: t(".confirm")} %>
+    <% end %>
+  </td>
 </tr>

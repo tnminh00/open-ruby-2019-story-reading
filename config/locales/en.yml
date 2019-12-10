@@ -56,6 +56,7 @@ en:
       confirm: "Are you sure?"
       edit: "Edit"
       delete: "Delete"
+      add_chapter: "Add chapter"
     destroy:
       del_success: "Delete story success."
       del_fail: "Delete story fail."
@@ -105,3 +106,29 @@ en:
       previous: "Previous Chapter"
       chapter: "Chapter"
       danger: "Chapter not found"
+    destroy:
+      del_success: "Delete chapter success."
+      del_fail: "Delete chapter fail."
+    chapter:
+      confirm: "Are you sure?"
+    edit:
+      update: "Update"
+      title: "Update Chapter"
+      name: "Name:"
+      chapter_number: "Chapter number:"
+      content: "Content:"
+      story: "Story:"
+    update:
+      success: "Chapter updated."
+    new:
+      title: "Create chapter"
+      create: "Create"
+      name: "Name:"
+      chapter_number: "Chapter number:"
+      content: "Content:"
+      story: "Story:"
+      not_admin: "You're not admin."
+    create:
+      success: "Chapter created."
+      unsuccess: "Chapter existed."
+
