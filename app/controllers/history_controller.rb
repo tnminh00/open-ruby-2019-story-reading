@@ -1,8 +1,7 @@
 class HistoryController < ApplicationController
   def index
     if current_user
-      chapter_id = current_user.histories.pluck :chapter_id
-      @chapters = Chapter.where(id: chapter_id)
+      @chapters = current_user.chapters.page(params[:page]).per Setting.perpage
     else
       redirect_to login_path
     end

@@ -37,6 +37,10 @@ RSpec.describe Chapter, type: :model do
     context "#order_chapter" do
       it{expect(Chapter.all.order_chapter).to eq [chapter3, chapter2, chapter1]}
     end
+
+    context "#chapter_number" do
+      it{expect(Chapter.by_chapter_number(2)).to eq [chapter2]}
+    end
   end
 
   describe "Delegate" do

@@ -38,7 +38,7 @@ class ChaptersController < ApplicationController
     @story = Story.find_by(id: params[:story][:id])
     @chapter = @story.chapters.new chapter_params
 
-    if @story.chapters.where(chapter_number: chapter_params[:chapter_number]).exists?
+    if @story.chapters.by_chapter_number(chapter_params[:chapter_number]).blank?
       if @chapter.save
         flash[:success] = t ".success"
         redirect_to story_path(@chapter.story)
@@ -47,7 +47,7 @@ class ChaptersController < ApplicationController
       end
     else
       flash[:danger] = t ".unsuccess"
-      redirect_back(fallback_location: root_path)
+      redirect_to story_path(@story)
     end
   end
 
