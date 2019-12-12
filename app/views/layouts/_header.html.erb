@@ -1,33 +1,26 @@
-<header class="main">
-  <title><%= t ".title" %></title>
-    <div class="row">
-      <nav>
-        <ul>
-          <li><%= link_to t(".home"), root_path %></li>
-          <li><%= link_to t(".stories"), stories_path %></li>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <%= link_to "Storyx2", root_path, class: "logo" %>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to t(".home"), root_path %></li>
+        <li><%= link_to t(".stories"), stories_path %></li>
+        <% if current_user %>
           <li><%= link_to t(".follows"), "#" %></li>
           <li><%= link_to t(".histories"), history_path %></li>
-          <li><%= link_to t(".categories"), categories_path %></li>
-        </ul>
-      </nav>
-      <nav class="col-md-6">
-        <ul>
-          <% if logged_in? %>
-            <li id="user_name"><%= current_user.name %></li>
-            <li><%= link_to t(".logout"), logout_path, 
-              method: :delete %></li>
-          <% else %>
-            <li><%= link_to t(".signup"), signup_path %></li>
-            <li><%= link_to t(".login"), login_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-    <div class="row">
-      <%= link_to t(".logo"), "#", class: "col-md-2 logo" %>
-      <%= form_tag search_index_path, method: :get do %>
-        <%= text_field_tag :form_search, params[:name], autocomplete: :off,
-          class: "col-md-offset-3 form-control", placeholder: t(".search") %>
-      <% end %> 
-    </div>
+        <% end %>
+        <li><%= link_to t(".categories"), categories_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li id="user_name"><%= current_user.name %></li>
+          <li><%= link_to t(".logout"), logout_path, 
+            method: :delete %></li>
+        <% else %>
+          <li><%= link_to t(".signup"), signup_path %></li>
+          <li><%= link_to t(".login"), login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
 </header>

@@ -1,5 +1,5 @@
 <% provide :button_text, t(".update") %>
-<div class="row page">
+<div class="center">
   <h1><%= t ".title" %></h1>
   <div class="col-md-offset-2 col-md-8">
     <%= form_for @chapter do |f| %>
@@ -22,6 +22,6 @@
         <%= f.cktext_area :content %>
       </div>
       <%= f.submit t(".update"), class: "btn btn-primary col-md-offset-4 col-md-4" %>
-  <% end %>
+    <% end %>
   </div>
 </div>
