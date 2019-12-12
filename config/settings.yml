@@ -13,6 +13,6 @@ paragraph: 5
 date_format: "%d/%m/%Y"
 sample: 2
 story:
-  name_maximun: 100
+  name_maximum: 100
   author_maximum: 50
-  introduction_maximum: 300
+  introduction_maximum: 500
