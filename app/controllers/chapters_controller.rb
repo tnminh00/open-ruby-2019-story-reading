@@ -5,6 +5,7 @@ class ChaptersController < ApplicationController
 
   def show
     Story.increment_counter :total_view, @chapter.story_id
+    update_history
   end
 
   def destroy
@@ -72,5 +73,19 @@ class ChaptersController < ApplicationController
 
     flash[:danger] = t ".danger2"
     redirect_to root_path
+  end
+
+  def update_history
+    if current_user
+      related_chapter_ids = @chapter.story.chapter_ids
+      history_chapter_ids = History.pluck :chapter_id
+      history_story_ids = Chapter.where(id: history_chapter_ids).pluck :story_id 
+
+      unless history_story_ids.detect{|id| id == @chapter.story_id}
+        current_user.histories.create chapter_id: params[:id]
+      else
+        current_user.histories.find_by(chapter_id: related_chapter_ids).update_attributes chapter_id: params[:id]
+      end
+    end
   end
 end
