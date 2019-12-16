@@ -9,7 +9,7 @@ class Story < ApplicationRecord
   has_many :users, through: :follows
   has_many :rates
 
-  validates :name, presence: true, length: {maximum: 100}
+  validates :name, presence: true, length: {maximum: Settings.story.name_maximum}
   validates :author, presence: true, length: {maximum: Settings.story.author_maximum}
   validates :introduction, presence: true, length: {maximum: Settings.story.introduction_maximum}
 
