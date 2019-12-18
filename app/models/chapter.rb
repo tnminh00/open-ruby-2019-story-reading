@@ -12,6 +12,7 @@ class Chapter < ApplicationRecord
   delegate :name, to: :story, prefix: true
 
   scope :order_chapter, -> {order chapter_number: :desc}
+  scope :by_chapter_number, -> number {where chapter_number: number}
 
   def next_chapter
     story.chapters.find_by(chapter_number: self.chapter_number + 1)
