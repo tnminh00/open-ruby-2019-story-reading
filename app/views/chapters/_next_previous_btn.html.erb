@@ -1,0 +1,14 @@
+<div class="col-md-2">
+  <% if @chapter.previous_chapter %>
+    <%= link_to chapter_path(@chapter.previous_chapter), class: "btn btn-small blue-btn" do %>
+      <span><i class="fa fa-arrow-left"></i></span>
+    <% end %>
+  <% end %>
+</div>
+<div class="right">
+  <% if @chapter.next_chapter %>
+    <%= link_to chapter_path(@chapter.next_chapter), class: "btn btn-small blue-btn" do %>
+      <span><i class="fa fa-arrow-right"></i></span>
+    <% end %>
+  <% end %>
+</div>

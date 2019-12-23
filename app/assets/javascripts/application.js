@@ -13,8 +13,10 @@
 //= require rails-ujs
 //= require jquery3
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require custom
 //= require semantic.min
+//= require owl.carousel
 //= require activestorage
 //= require ckeditor/init
 //= require turbolinks

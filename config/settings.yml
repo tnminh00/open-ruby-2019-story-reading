@@ -6,9 +6,12 @@ name:
 password:
   minimum: 6
 story_image: "story_image.jpeg"
+slide1: "slide1.jpg"
+slide2: "slide2.jpg"
+slide3: "slide3.jpg"
 theme: "twitter-bootstrap-3"
-number_stories: 12
-perpage: 24
+number_stories: 10
+perpage: 20
 paragraph: 5
 date_format: "%d/%m/%Y"
 sample: 2
