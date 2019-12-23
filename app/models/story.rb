@@ -14,4 +14,12 @@ class Story < ApplicationRecord
   validates :introduction, presence: true, length: {maximum: Settings.story.introduction_maximum}
 
   scope :search_by_name, -> name {where "name like ?", "#{name}%"}
+
+  def new_chapter
+    self.lastest_chapter + 1
+  end
+
+  def lastest_chapter
+    chapters.lastest_chapter
+  end
 end

@@ -1,0 +1,44 @@
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="title">
+      <h2><%= t ".title" %></h2>
+      <hr>
+    </div>
+    <div class"row">
+      <%= link_to t(".new_story"), new_story_path, class: "btn col-md-2" %>
+      <%= form_tag search_index_path, method: :get, class: "form-inline my-4 my-lg-0" do %>
+        <%= text_field_tag :form_search, params[:name], autocomplete: :off,
+          class: "form-control mr-sm-2 my-sm-4 col-md-7 col-md-offset-1", placeholder: t(".search") %>
+        <span class="fa fa-search my-sm-2"></span>
+      <% end %> 
+    </div>
+    <div class="row left col-md-12">
+      <table class="table">
+        <tr>
+          <th><%= t ".id" %></th>
+          <th><%= t ".story" %></th>
+          <th><%= t ".author" %></th>
+          <th><%= t ".update_time" %></th>
+          <th><%= t ".action" %></th>
+        </tr>
+        <% @stories.each do |story| %>
+          <tr>
+            <td><%= story.id %></td>
+            <td>
+              <%= link_to story.name, chapters_story_path(story.id) %>
+              <span class="tooltipintro"><%= story.introduction %></span>
+            </td>
+            <td><%= story.author %></td>
+            <td><%= story.date_time %></td>
+            <td>
+              <%= link_to t(".edit"), edit_story_path(story), class: "btn btn-small blue-btn" %>
+              <%= link_to t(".delete"), story, method: :delete, class: "btn btn-small red-btn",
+                data: {confirm: t(".confirm")} %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <%= paginate @stories, theme: Settings.theme %>
+  </div>
+</section>

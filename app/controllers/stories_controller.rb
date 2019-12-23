@@ -19,7 +19,7 @@ class StoriesController < ApplicationController
     else
       flash[:danger] = t ".del_fail"
     end
-    redirect_to stories_path
+    redirect_to management_path
   end
 
   def new
@@ -44,7 +44,7 @@ class StoriesController < ApplicationController
     if @story.update story_params
       update_categories
       flash[:success] = t ".success"
-      redirect_to @story
+      render :edit
     else
       render :edit
     end

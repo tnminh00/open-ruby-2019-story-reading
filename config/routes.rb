@@ -6,9 +6,14 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/history", to: "history#index"
+  get "/management", to: "home_page#management"
 
   resources :users
-  resources :stories
+  resources :stories do
+    member do
+      get "chapters", to: "chapters#index"
+    end
+  end
   resources :chapters
   resources :search, only: :index
   resources :categories, only: %i(index show)
