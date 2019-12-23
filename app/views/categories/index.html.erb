@@ -1,4 +1,23 @@
-<div class="center">
-  <h1><%= t ".title" %></h1>
-  <%= render "shared/show_list", objects: @categories %>
-</div>
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="title">
+      <h2><%= t ".title" %></h2>
+      <hr>
+    </div>
+    <div class="row">
+      <% @categories.each do |cat| %>
+        <div class="col-lg-2 col-md-3 col-sm-4">
+          <div class="item">
+            <%= link_to cat do %>
+              <%= image_tag Settings.story_image %>
+              <h3><span class="name"><%= cat.name %></span></h3>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="paginate">
+      <%= paginate @categories, theme: Settings.theme %>
+    </div>
+  </div>
+</section>

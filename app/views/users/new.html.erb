@@ -1,22 +1,31 @@
-<div class="center">
-  <h1><%= t ".signup" %></h1>
-  <div class="ui form col-md-offset-3 col-md-6">
-    <%= form_for @user do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
-      
-      <%= f.label t(".name"), class: "col-md-12" %>
-      <%= f.text_field :name, class: "form-control" %>
-
-      <%= f.label t(".email"), class: "col-md-12" %>
-      <%= f.email_field :email, class: "form-control" %>
-
-      <%= f.label t(".password"), class: "col-md-12" %>
-      <%= f.password_field :password, class: "form-control" %>
-
-      <%= f.label t(".confirm"), class: "col-md-12" %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
-
-      <%= f.submit t(".create"), class: "btn btn-primary col-md-offset-4 col-md-4" %>
-    <% end %>
+<div class="breadcrumb">
+  <div class="container">
+    <%= link_to t(".home"), root_path, class: "breadcrumb-item" %>
+    <span class="breadcrumb-item active"><%= t ".signup" %></span>
   </div>
 </div>
+<section class="static about-sec">
+  <div class="container">
+    <h1><%= t ".title" %></h1>
+    <div class="form">
+      <%= form_for @user do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+      
+        <%= f.label t(".name"), class: "col-md-12" %>
+        <%= f.text_field :name, class: "form-control" %>
+
+        <%= f.label t(".email"), class: "col-md-12" %>
+        <%= f.email_field :email, class: "form-control" %>
+
+        <%= f.label t(".password"), class: "col-md-12" %>
+        <%= f.password_field :password, class: "form-control" %>
+
+        <%= f.label t(".confirm"), class: "col-md-12" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+
+        <%= f.submit t(".create"), class: "btn col-md-3" %>
+      <% end %>
+      <h5><%= t ".text" %> <%= link_to t(".login"), login_path %></h5>
+    </div>
+  </div>
+</section>

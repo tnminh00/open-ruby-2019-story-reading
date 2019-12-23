@@ -1,4 +1,14 @@
-<div class="center">
-  <h1><%= t ".category" %><%= @title %></h1>
-  <%= render "shared/show_list", objects: @stories %>
-</div>
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="title">
+      <h2><%= t ".category" %> <%= @title %></h2>
+      <hr>
+    </div>
+    <div class="row">
+      <%= render @stories %>
+    </div>
+    <div class="paginate">
+      <%= paginate @stories, theme: Settings.theme %>
+    </div>
+  </div>
+</section>

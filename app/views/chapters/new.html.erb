@@ -1,29 +1,36 @@
-<% provide :button_text, t(".create") %>
-<div class="center">
-  <h1><%= t ".title" %></h1>
-  <div class="col-md-offset-2 col-md-8">
-    <%= form_for @chapter do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
-      <div class="col-md-12">
-        <%= fields_for @story do |f| %>
-          <%= f.label t(".story"), class: "col-md-12" %>
-          <%= collection_select :story, :id, Story.all, :id, :name,
-            {selected: params[:story_id]}, {class: "form-control"} %>
-        <% end %>
-      </div>
-      <div class="col-md-4">
-        <%= f.label t(".chapter_number"), class: "col-md-12" %>
-        <%= f.number_field :chapter_number, class: "form-control", min: 1 %>
-      </div>
-      <div class="col-md-8">
-        <%= f.label t(".name"), class: "col-md-12" %>
-        <%= f.text_field :name, class: "form-control" %> 
-      </div>
-      <div class="col-md-12">
-        <%= f.label t(".content"), class: "col-md-12" %>
-        <%= f.cktext_area :content %>
-      </div>
-      <%= f.submit yield(:button_text), class: "btn btn-primary col-md-offset-4 col-md-4" %>
-    <% end %>
+<div class="breadcrumb">
+  <div class="container">
+    <%= link_to t(".management"), management_path, class: "breadcrumb-item" %>
+    <span class="breadcrumb-item active"><%= t ".title" %></span>
   </div>
 </div>
+<section class="product-sec">
+  <div class="container">
+    <h1><%= t ".title" %></h1>
+    <div class="ui form col-md-offset-1 col-md-10">
+      <%= form_for @chapter do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <div class="col-md-12 mb-lg-4">
+          <%= fields_for @story do |f| %>
+          <%= f.label t(".story"), class: "col-md-12" %>
+            <%= collection_select :story, :id, Story.all, :id, :name,
+              {selected: params[:story_id]}, {class: "form-control"} %>
+          <% end %>
+        </div>
+        <div class="col-md-4 mb-lg-4">
+          <%= f.label t(".chapter_number"), class: "col-md-12" %>
+          <%= f.number_field :chapter_number, value: params[:new_chapter],class: "form-control", min: 1 %>
+        </div>
+        <div class="col-md-8">
+          <%= f.label t(".name"), class: "col-md-12" %>
+          <%= f.text_field :name, class: "form-control" %> 
+        </div>
+        <div class="col-md-12 mb-lg-4">
+          <%= f.label t(".content"), class: "col-md-12" %>
+          <%= f.cktext_area :content %>
+        </div>
+        <%= f.submit t(".create"), class: "btn col-md-offset-4 col-md-4" %>
+      <% end %>
+    </div>
+  </div>
+</section>

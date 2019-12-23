@@ -1,10 +1,32 @@
-<div class="hero"></div>
-<div class="center">
-  <h1><%= t ".home" %></h1>
-  <div class="story_content">
-    <%= render @stories %>
+<section class="slider">
+  <div class="container">
+    <div id="owl-demo" class="owl-carousel owl-theme">
+      <%= render "layouts/slide" %>
+    </div>
   </div>
-</div>
-<div class="footer col-md-12">
-  <h1><%= t ".title" %></h1>
-</div>
+</section>
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="title">
+      <h2><%= t ".title1" %></h2>
+      <hr>
+    </div>
+    <div class="row">
+      <%= render @stories %>
+    </div>
+  </div>
+</section>
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="title">
+      <h2><%= t ".title2" %></h2>
+      <hr>
+    </div>
+    <div class="row">
+      <%= render @stories %>
+    </div>
+    <div class="btn-sec">
+      <%= link_to t(".btn"), stories_path, class: "btn blue-btn" %>
+    </div>
+  </div>
+</section>

@@ -1,18 +1,29 @@
-<div class="center">
-  <div class="story_content">
-    <div class="row">
-      <h1><%= @story.name %></h1>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <%= image_tag Settings.story_image %>
-      </div>
-      <div class="col-md-9">
-        <%= render "story_details" %>  
-      </div>
-    </div>
-    <div class="row">
-      <%= render "list_chapters" %>
-    </div>
+<div class="breadcrumb">
+  <div class="container">
+    <%= link_to t(".home"), root_path, class: "breadcrumb-item" %>
+    <%= link_to t(".all_stories"), stories_path, class: "breadcrumb-item" %>
+    <span class="breadcrumb-item active"><%= @story.name %></span>
   </div>
 </div>
+<section class="product-sec">
+  <div class="container">
+    <h1><%= @story.name %></h1>
+    <div class="row">
+      <div class="col-md-6 slider-sec">
+        <div id="myCarousel" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="active item carousel-item">
+            <%= image_tag Settings.story_image %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 slider-content">
+        <%= render "story_details" %>
+      </div>
+      <div class="col-md-offset-1 col-md-10 slider-chapter">
+        <%= render "list_chapters" %>
+      </div>
+    </div>
+  </div>
+</section>
