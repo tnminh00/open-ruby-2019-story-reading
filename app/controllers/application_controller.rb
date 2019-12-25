@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t ".not_admin"
     redirect_to root_path
   end
+
+  def load_history
+    if current_user
+      @chapters = current_user.chapters.page(params[:page]).per Settings.perpage
+    else
+      redirect_to login_path
+    end
+  end
 end

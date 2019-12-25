@@ -9,10 +9,11 @@ class Chapter < ApplicationRecord
   validates :chapter_number, presence: true, numericality: {greater_than: 0}
   validates :content, presence: true
 
-  delegate :name, to: :story, prefix: true
+  delegate :name, :introduction, :total_view, to: :story, prefix: true
 
   scope :order_chapter, -> {order chapter_number: :desc}
   scope :by_chapter_number, -> number {where chapter_number: number}
+  scope :lastest_chapter, -> {maximum("chapter_number")}
 
   def next_chapter
     story.chapters.find_by(chapter_number: self.chapter_number + 1)
@@ -20,9 +21,5 @@ class Chapter < ApplicationRecord
 
   def previous_chapter
     story.chapters.find_by(chapter_number: self.chapter_number - 1)
-  end
-
-  def date_time
-    updated_at.strftime Settings.date_format
   end
 end

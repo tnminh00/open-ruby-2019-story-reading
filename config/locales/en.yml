@@ -14,18 +14,41 @@ en:
       logout: "Logout"
     footer:
       logo: "Storyx2"
+    slide:
+      text1: "welcome to Story Story"
+      text2: "Discover the best stories online with us"
+      all: "All stories"
   home_page:
     home:
-      home: "Home"
-      title: "Storyx2"
+      title1: "new update stories"
+      title2: "highly recommendes stories"
+      btn: "view all books"
+    management:
+      title: "Management"
+      id: "Id"
+      story: "Story"
+      lastest_chapter: "Lastest chapter"
+      update_time: "Update time"
+      action: "Action"
+      edit: "Edit"
+      delete: "Delete"
+      confirm: "Are you sure?"
+      search: "Search Story, Author"
+      not_admin: "You aren't admin"
+      new_chapter: "New chapter"
+      new_story: "Add new story"
   users:
     new:
+      title: "My Account / Sign up"
+      home: "Home"
       signup: "Sign up"
       name: "Name"
       email: "Email"
       password: "Password"
       confirm: "Password Confirmation"
       create: "Create my account"
+      login: "Login here"
+      text: "Registered?"
     create:
       success: "Sign up success. Login please."
   shared:
@@ -34,19 +57,25 @@ en:
       error: "error"
   sessions:
     new:
+      title: "My Account / Login"
+      home: "Home"
       login: "Login"
       email: "Email"
       password: "Password"
       remember: "Remember me on this computer"
+      signup: "Sign up here"
+      text: "not Sign up?"
     create:
       success: "Login success."
       danger: "Invalid Email/Password combination"
   stories:
     index:
-      title: "Stories"
+      title: "All Stories"
       new: "Add new story"
-      search: "Search...."
+      search: "Search Stories, Authors, ...."
     show:
+      all_stories: "All Stories"
+      home: "Home"
       not_found: "Story not found."
       name: "Name: "
       author: "Author: "
@@ -88,10 +117,16 @@ en:
       title: "Edit story"
       update: "Update"
       not_admin: "You aren't admin."
+      management: "Management"
     update:
       success: "Story updated."
     create:
       success: "Story created."
+    story:
+      text1: "Intro: "
+      text2: "total view: "
+      text3: "Categories: "
+      chapter: "Chapter "
   date_format: "%d/%m/%Y"
   categories:
     index:
@@ -101,10 +136,14 @@ en:
       danger: "Category not found"
   search:
     index:
-      title: "Story"
+      title: "Stories"
       search: "Search..."
   chapters:
+    index:
+      management: "Management"
+      danger2: "Story not found"
     show:
+      home: "Home"
       next: "Next Chapter"
       previous: "Previous Chapter"
       chapter: "Chapter"
@@ -125,6 +164,7 @@ en:
     update:
       success: "Chapter updated."
     new:
+      management: "Management"
       title: "Create chapter"
       create: "Create"
       name: "Name:"
@@ -139,3 +179,6 @@ en:
     index:
       title: "History"
       chapter: "Chapter"
+      text1: "Intro: "
+      text3: "Categories: "
+      text2: "total view: "

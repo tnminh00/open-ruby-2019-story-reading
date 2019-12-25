@@ -1,7 +1,17 @@
 class ChaptersController < ApplicationController
-  before_action :check_is_admin, except: %i(index show)
+  before_action :check_is_admin, except: :show
   before_action :load_story, only: :create
   before_action :load_chapter, except: %i(index new create)
+
+  def index
+    @story = Story.find_by id: params[:id]
+    if @story
+      @chapters = @story.chapters.order_chapter.page(params[:page]).per Settings.perpage
+    else
+      flash[:danger] = t ".danger2"
+      redirect_to management_path
+    end
+  end
 
   def show
     Story.increment_counter :total_view, @chapter.story_id
@@ -16,7 +26,7 @@ class ChaptersController < ApplicationController
     else
       flash[:danger] = t ".del_fail"
     end
-    redirect_to story_path(@chapter.story)
+    redirect_to chapters_story_path @chapter.story
   end
 
   def edit; end
@@ -38,16 +48,14 @@ class ChaptersController < ApplicationController
     @story = Story.find_by(id: params[:story][:id])
     @chapter = @story.chapters.new chapter_params
 
-    if @story.chapters.by_chapter_number(chapter_params[:chapter_number]).blank?
-      if @chapter.save
-        flash[:success] = t ".success"
-        redirect_to story_path(@chapter.story)
-      else
-        render :new
-      end
-    else
+    if @story.chapters.by_chapter_number(chapter_params[:chapter_number]).exists?
       flash[:danger] = t ".unsuccess"
-      redirect_to story_path(@story)
+      redirect_to chapters_story_path @story
+    elsif @chapter.save
+      flash[:success] = t ".success"
+      redirect_to chapters_story_path @chapter.story
+    else
+      render :new
     end
   end
 
@@ -67,7 +75,7 @@ class ChaptersController < ApplicationController
   end
 
   def load_story
-    @story = Story.find_by(id: params[:story][:id])
+    @story = Story.find_by id: params[:story][:id]
 
     return if @story
 
