@@ -101,7 +101,9 @@ en:
       introduction: "Introduction: "
       categories: "Categories: "
       total_view: "Total view: "
-      lastest_chapter: "Lastest chapter"
+      lastest_chapter: "Lastest chapter: "
+      rating: "Rating: "
+      votes: "Votes: "
     new:
       title: "Create Story"
       name: "Name"

@@ -13,6 +13,15 @@
     <span class="detail"><%= @story.total_view %></span>
   </li>
   <li>
+    <span class="name"><%= t ".rating" %></span><span class="clm"></span>
+    <span class="detail star">
+      <%= rating_for @story, "rating", star: 5, disable_after_rate: true, cancel: true %>  
+    </span>
+    <span class="detail">
+      (<%= t ".votes" %><%= @story.rates("rating").count %>)
+    </span>
+  </li>
+  <li>
     <span class="name"><%= t ".categories" %></span><span class="clm"></span>
     <% @story.categories.each do |cat| %>
     <div class="cat1"><%= link_to cat.name, category_path(cat), class: "tag1" %></div>

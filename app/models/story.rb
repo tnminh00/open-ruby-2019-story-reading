@@ -7,7 +7,7 @@ class Story < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :follows
   has_many :users, through: :follows
-  has_many :rates
+  ratyrate_rateable "rating"
 
   validates :name, presence: true, length: {maximum: Settings.story.name_maximum}
   validates :author, presence: true, length: {maximum: Settings.story.author_maximum}

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/history", to: "history#index"
   get "/management", to: "home_page#management"
+  post "/rate", to: "rater#create", as: "rate"
 
   resources :users
   resources :stories do

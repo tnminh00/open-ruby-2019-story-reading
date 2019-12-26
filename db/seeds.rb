@@ -1,3 +1,5 @@
+User.create(name: "admin", email: "admin@gmail.com", password: "123456", is_admin: true)
+User.create(name: "user", email: "user@gmail.com", password: "123456")
 100.times do |n|
   name = FFaker::Book.title
   author = FFaker::Name.name
