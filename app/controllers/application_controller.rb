@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def load_story
     @story = Story.find_by id: params[:id]
     

@@ -87,6 +87,18 @@ section {
   color: $blue;
 }
 
+.gray-btn {
+  background: $gray;
+  border: 2px solid $gray;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.gray-btn:hover {
+  background: $white;
+  color: $gray;
+}
+
 .red-btn {
   background: $red;
   border: 2px solid $red;
@@ -371,23 +383,27 @@ header .cart .quntity {
   opacity: 1;
 }
 
-.recent-book-sec .item .chap {
+.recent-book-sec .item .picture {
+  position: relative;
+}
+
+.recent-book-sec .item .picture .chap {
   background: $yellow;
   padding: 5px 20px;
   position: absolute;
   top: 1%;
-  left: 15%;
+  left: 2%;
   color: $white;
   border-radius: 6px;
   font-size: 12px;
 }
 
-.recent-book-sec .item .time {
+.recent-book-sec .item .picture .time {
   background: $yellow;
   padding: 5px 10px;
   position: absolute;
-  top: 58%;
-  right: 14%;
+  bottom: 7%;
+  right: 2%;
   border-radius: 6px;
   color: $white;
   font-size: 11px;

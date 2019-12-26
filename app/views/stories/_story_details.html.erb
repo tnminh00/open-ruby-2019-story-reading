@@ -13,6 +13,10 @@
     <span class="detail"><%= @story.total_view %></span>
   </li>
   <li>
+    <span class="name"><%= t ".follow" %></span><span class="clm"></span>
+    <span class="detail follow"><%= @story.follows.size %></span>
+  </li>
+  <li>
     <span class="name"><%= t ".rating" %></span><span class="clm"></span>
     <span class="detail star">
       <%= rating_for @story, "rating", star: 5, disable_after_rate: true, cancel: true %>  
@@ -28,3 +32,6 @@
     <% end %>
   </li>
 </ul>
+<div class="btn-sec">
+  <%= render "follow_form" %>
+</div>
