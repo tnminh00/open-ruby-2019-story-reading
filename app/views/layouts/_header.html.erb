@@ -1,26 +1,55 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav>
-      <%= link_to "Storyx2", root_path, class: "logo" %>
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to t(".home"), root_path %></li>
-        <li><%= link_to t(".stories"), stories_path %></li>
-        <% if current_user %>
-          <li><%= link_to t(".follows"), "#" %></li>
-          <li><%= link_to t(".histories"), history_path %></li>
+<header>
+  <div class="main-menu">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <h1><%= t ".title" %></h1>
         <% end %>
-        <li><%= link_to t(".categories"), categories_path %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li id="user_name"><%= current_user.name %></li>
-          <li><%= link_to t(".logout"), logout_path, 
-            method: :delete %></li>
-        <% else %>
-          <li><%= link_to t(".signup"), signup_path %></li>
-          <li><%= link_to t(".login"), login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="navbar-item">
+              <%= link_to t(".home"), root_path, class: "nav-link" %>
+            </li>
+            <li class="navbar-item">
+              <%= link_to t(".stories"), stories_path, class: "nav-link" %>
+            </li>
+            <li class="navbar-item">
+              <%= link_to t(".categories"), categories_path, class: "nav-link" %>
+            </li>
+            <% if logged_in? %>
+              <li class="navbar-item">
+                <%= link_to t(".follows"), "#", class: "nav-link" %>
+              </li>
+              <li class="navbar-item">
+                <%= link_to t(".histories"), history_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            <% if logged_in? %>
+              <% if current_user.is_admin %>
+                <li class="navbar-item">
+                  <%= link_to current_user.name, management_path, class: "nav-link" %>
+                </li>
+              <% else %>
+                <li class="navbar-item">
+                  <%= link_to current_user.name, "#", class: "nav-link" %>
+                </li>
+              <% end %>
+              <li class="navbar-item">
+                <%= link_to t(".logout"), logout_path, method: :delete, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="navbar-item">
+                <%= link_to t(".login"), login_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </div>
 </header>

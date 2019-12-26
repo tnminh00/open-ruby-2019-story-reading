@@ -1,15 +1,21 @@
-<div class="center">
-  <h1><%= t ".title" %></h1>
-  <div class="row col-md-12 story_content">
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="title">
+      <h2><%= t ".title" %></h2>
+      <hr>
+    </div>
     <div class="row">
-      <%= form_tag search_index_path, method: :get do %>
+      <%= form_tag search_index_path, method: :get, class: "col-md-12" do %>
         <%= text_field_tag :form_search, params[:name], autocomplete: :off,
-          class: "col-md-offset-3 form-control", placeholder: t(".search") %>
+          class: "form-control col-md-offset-3 col-md-6 search", placeholder: t(".search") %>
+        <span class="fa fa-search"></span>
       <% end %> 
     </div>
-    <%= render @stories %>
+    <div class="row">
+      <%= render @stories %>
+    </div>
+    <div class="paginate">
+      <%= paginate @stories, theme: Settings.theme %>
+    </div>
   </div>
-  <div class="paginate">
-    <%= paginate @stories, theme: Settings.theme %>
-  </div>
-</div>
+</section>

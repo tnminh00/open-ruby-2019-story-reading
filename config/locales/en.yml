@@ -9,11 +9,11 @@ en:
       signup: "Sign up"
       login: "Login"
       logo: "Storyx2"
-      title: "Story Story"
+      title: "StoryStory"
       search: "Search..."
       logout: "Logout"
     footer:
-      logo: "Storyx2"
+      text: "(C) 2019. All Rights Reserved. Story Story"
     slide:
       text1: "welcome to Story Story"
       text2: "Discover the best stories online with us"
@@ -101,6 +101,7 @@ en:
       introduction: "Introduction: "
       categories: "Categories: "
       total_view: "Total view: "
+      lastest_chapter: "Lastest chapter"
     new:
       title: "Create Story"
       name: "Name"

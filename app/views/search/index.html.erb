@@ -1,15 +1,21 @@
-<div class="center">
-  <h1><%= t ".title" %></h1>
-  <div class="row">
-    <%= form_tag search_index_path, method: :get do %>
-      <%= text_field_tag :form_search, params[:name], autocomplete: :off,
-        class: "col-md-offset-3 form-control", placeholder: t(".search") %>
-    <% end %> 
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="title">
+      <h2><%= t ".title" %></h2>
+      <hr>
+    </div>
+    <div class="row">
+      <span class="fa fa-search"></span>
+      <%= form_tag search_index_path, method: :get, class: "col-md-12" do %>
+        <%= text_field_tag :form_search, params[:name], autocomplete: :off,
+          class: "form-control col-md-offset-3 col-md-6 search", placeholder: t(".search") %>
+      <% end %> 
+    </div>
+    <div class="row">
+      <%= render @stories %>
+    </div>
+    <div class="paginate">
+      <%= paginate @stories, theme: Settings.theme %>
+    </div>
   </div>
-  <div class="story_content">
-    <%= render "shared/show_list", objects: @search_stories %>
-  </div>
-</div>
-<div class="footer col-md-12">
-  <h1><%= t ".title" %></h1>
-</div>
+</section>

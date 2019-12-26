@@ -7,13 +7,16 @@
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900",
+      "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+      "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
     <%= render "layouts/header" %>
-    <div class="grid-container">
-      <%= render "layouts/message" %>
-      <%= yield %>
-    </div>
+    <%= render "layouts/message" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

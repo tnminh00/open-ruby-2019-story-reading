@@ -2,11 +2,11 @@
   <td><%= chapter.chapter_number %>
   <td><%= link_to chapter.name, chapter_path(chapter.id) %></td>
   <td><%= chapter.date_time %></td>
-  <td>
-    <% if current_user&.is_admin? %>
-      <%= link_to t(".edit"), edit_chapter_path(chapter.id), class: "btn btn-primary" %>
-      <%= link_to t(".delete"), chapter, method: :delete,
-        class: "btn btn-danger", data: {confirm: t(".confirm")} %>
-    <% end %>
-  </td>
+  <% if current_user&.is_admin? %>
+    <td>
+      <%= link_to t(".edit"), edit_chapter_path(chapter), class: "btn btn-small blue-btn" %>
+      <%= link_to t(".delete"), chapter, method: :delete, class: "btn btn-small red-btn",
+        data: {confirm: t(".confirm")} %>
+    </td>
+  <% end %>
 </tr>

@@ -6,9 +6,11 @@
 </div>
 <section class="product-sec">
   <div class="container">
-    <h1><%= @story.name %></h1>
-    <%= link_to t(".new_chapter"), new_chapter_path(story_id: @story.id, new_chapter: @story.new_chapter), class: "btn btn-small" %>
-    <div class="col-md-offset-1 col-md-10 slider-chapter">
+    <div class="row">
+      <h1 class="col-md-10"><%= @story.name %></h1>
+      <%= link_to t(".new_chapter"), new_chapter_path(story_id: @story.id, new_chapter: @story.new_chapter), class: "btn btn-small" %>
+    </div>
+    <div class="col-md-offset-1 col-md-11 slider-chapter">
       <%= render "stories/list_chapters" %>
     </div>
   </div>

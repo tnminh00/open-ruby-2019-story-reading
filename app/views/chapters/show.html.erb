@@ -1,16 +1,17 @@
-<div class="center">
-  <h1><%= link_to @chapter.story_name, story_path(@chapter.story) %></h1>
-  <h2><%= t ".chapter" %> <%= @chapter.chapter_number %>: <%= @chapter.name %></h2>
-  <div class="col-md-12 story_content">
-    <p><%= @chapter.content.html_safe %></p>  
-  </div>
-  <div class="col-md-2">
-    <h4><%= link_to t(".previous"), chapter_path(@chapter.previous_chapter) if @chapter.previous_chapter %></h4>
-  </div>
-  <div class="right">
-    <h4><%= link_to t(".next"), chapter_path(@chapter.next_chapter) if @chapter.next_chapter %></h4>
+<div class="breadcrumb">
+  <div class="container">
+    <%= link_to t(".home"), root_path, class: "breadcrumb-item" %>
+    <%= link_to @chapter.story_name, story_path(@chapter.story), class: "breadcrumb-item" %>
+    <span class="breadcrumb-item"><%= t ".chapter" %> <%= @chapter.chapter_number %>: <%= @chapter.name %></span>
   </div>
 </div>
-<div class="footer col-md-12">
-  <h1><%= t ".title" %></h1>
-</div>
+<section class="product-sec">
+  <div class="container">
+    <%= render "next_previous_btn" %>
+    <h1><%= t ".chapter" %> <%= @chapter.chapter_number %>: <%= @chapter.name %></h1>
+    <div class="row">
+      <p><%= @chapter.content.html_safe %></p>
+    </div>
+    <%= render "next_previous_btn" %> 
+  </div>
+</section>
