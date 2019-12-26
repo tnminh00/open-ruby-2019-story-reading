@@ -1,0 +1,19 @@
+<% if @stories.exists? %>
+  <div class="scrollable-menu">
+    <%= render "search_story" %>
+  </div>
+  <li class="divider"></li>
+  <li>
+    <%= link_to search_path(params[:search]),
+      class: "btn btn-block" do %>
+      <%= t ".more", size: @stories.size, search: params[:search] %>
+    <% end %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to search_path(params[:search]),
+    class: "btn btn-default btn-block" do %>
+    <%= t ".results", search: params[:search] %>
+  <% end %>
+  </li>
+<% end %>

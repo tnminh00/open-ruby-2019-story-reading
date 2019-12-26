@@ -1,15 +1,11 @@
 <section class="recent-book-sec">
   <div class="container">
     <div class="title">
-      <h2><%= t ".title" %></h2>
+      <h2><%= t ".title" %><%= params[:search] %></h2>
       <hr>
     </div>
     <div class="row">
-      <span class="fa fa-search"></span>
-      <%= form_tag search_index_path, method: :get, class: "col-md-12" do %>
-        <%= text_field_tag :form_search, params[:name], autocomplete: :off,
-          class: "form-control col-md-offset-3 col-md-6 search", placeholder: t(".search") %>
-      <% end %> 
+      <%= render "shared/form_search" %> 
     </div>
     <div class="row">
       <%= render @stories %>

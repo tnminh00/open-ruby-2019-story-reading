@@ -1,0 +1,13 @@
+<%= form_tag search_path, method: :get, class: "col-md-5", id: "livesearch_form" do %>
+  <div class="form-group dropdown">
+    <%= text_field_tag :search, params[:search],
+      class: "form-control dropdown-toggle",
+      placeholder: t(".search"),
+      "data-toggle": "dropdown", "aria-hidden": :true,
+      autocomplete: :off, required: true, id: "livesearch_input" %>
+    <ul class="dropdown-menu">
+      <div id="livesearch_dom"></div>
+    </ul>
+  </div>
+<% end %>
+<span class="fa fa-search"></span>

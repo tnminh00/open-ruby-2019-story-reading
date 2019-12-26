@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/history", to: "history#index"
   get "/management", to: "home_page#management"
   post "/rate", to: "rater#create", as: "rate"
+  get "search(/:search)", to: "search#index", as: "search"
 
   resources :users
   resources :stories do
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
     end
   end
   resources :chapters
-  resources :search, only: :index
   resources :categories, only: %i(index show)
   resources :follows, only: %i(index create destroy)
 end
