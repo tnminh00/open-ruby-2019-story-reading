@@ -6,7 +6,7 @@ class ChaptersController < ApplicationController
   def index
     @story = Story.find_by id: params[:id]
     if @story
-      @chapters = @story.chapters.order_chapter.page(params[:page]).per Settings.perpage
+      @chapters = @story.chapters
     else
       flash[:danger] = t ".danger2"
       redirect_to management_path

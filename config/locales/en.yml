@@ -155,6 +155,10 @@ en:
     index:
       management: "Management"
       danger2: "Story not found"
+      confirm: "Are you sure?"
+      edit: "Edit"
+      delete: "Delete"
+      not_admin: "You aren't admin"
     show:
       home: "Home"
       next: "Next Chapter"
@@ -167,6 +171,8 @@ en:
       del_fail: "Delete chapter fail."
     chapter:
       confirm: "Are you sure?"
+      edit: "Edit"
+      delete: "Delete"
     edit:
       update: "Update"
       title: "Update Chapter"

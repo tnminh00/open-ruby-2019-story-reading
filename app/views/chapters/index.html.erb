@@ -10,8 +10,35 @@
       <h1 class="col-md-10"><%= @story.name %></h1>
       <%= link_to t(".new_chapter"), new_chapter_path(story_id: @story.id, new_chapter: @story.new_chapter), class: "btn btn-small" %>
     </div>
-    <div class="col-md-offset-1 col-md-11 slider-chapter">
-      <%= render "stories/list_chapters" %>
+    <div class="col-md-12 slider-chapter">
+      <table class="table" id="chapters-table">
+        <thead>
+          <tr>
+            <th><%= t ".chapter" %></th>
+            <th><%= t ".name" %></th>
+            <th><%= t ".update_time" %></th>
+            <% if current_user.try(:is_admin?) %>
+              <th><%= t ".action" %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @chapters.each do |chapter| %>
+            <tr>
+              <td><%= chapter.chapter_number %>
+              <td><%= link_to chapter.name, chapter_path(chapter.id) %></td>
+              <td><%= chapter.date_time %></td>
+              <% if current_user.try(:is_admin?) %>
+                <td>
+                  <%= link_to t(".edit"), edit_chapter_path(chapter), class: "btn btn-small blue-btn" %>
+                  <%= link_to t(".delete"), chapter, method: :delete, class: "btn btn-small red-btn",
+                    data: {confirm: t(".confirm")} %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
