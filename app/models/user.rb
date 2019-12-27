@@ -3,11 +3,11 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   has_many :comments
-  has_many :rates
   has_many :follows
   has_many :stories, through: :follows
   has_many :histories
   has_many :chapters, through: :histories
+  ratyrate_rater
   validates :name, presence: true, length: {maximum: Settings.name.maximum}
   validates :email, presence: true, length: {maximum: Settings.email.maximum}, 
     format: {with: Settings.valid_email_regex}, uniqueness:true

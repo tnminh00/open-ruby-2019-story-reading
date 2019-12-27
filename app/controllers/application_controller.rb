@@ -19,4 +19,14 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+
+  def load_story
+    @story = Story.find_by id: params[:id]
+    
+    return if @story
+    
+    flash[:danger] = t ".not_found"
+    redirect_to root_path
+  end
 end

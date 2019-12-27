@@ -56,15 +56,6 @@ class StoriesController < ApplicationController
     params.require(:story).permit Story::STORY_PARAMS
   end
 
-  def load_story
-    @story = Story.find_by id: params[:id]
-    
-    return if @story
-    
-    flash[:danger] = t ".not_found"
-    redirect_to root_path
-  end
-
   def add_categories
     params[:category][:ids].shift
     params[:category][:ids].each do |cat|
