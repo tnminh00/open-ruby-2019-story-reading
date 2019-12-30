@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :chapters
   resources :search, only: :index
   resources :categories, only: %i(index show)
+  resources :follows, only: %i(index create destroy)
 end

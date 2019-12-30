@@ -1,0 +1,14 @@
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="title">
+      <h2><%= t ".title" %></h2>
+      <hr>
+    </div>
+    <div class="row">
+      <%= render @stories %>
+    </div>
+    <div class="paginate">
+      <%= paginate @stories, theme: Settings.theme %>
+    </div>
+  </div>
+</section>

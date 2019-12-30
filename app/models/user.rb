@@ -46,6 +46,18 @@ class User < ApplicationRecord
     update_attributes remember_digest: nil
   end
 
+  def follow story
+    stories << story
+  end
+
+  def unfollow follow_relation
+    follows.destroy follow_relation
+  end
+
+  def follow? story
+    stories.include? story
+  end
+
   private
 
   def downcase_email

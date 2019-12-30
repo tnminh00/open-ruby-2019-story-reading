@@ -104,6 +104,7 @@ en:
       lastest_chapter: "Lastest chapter: "
       rating: "Rating: "
       votes: "Votes: "
+      follow: "Follow: "
     new:
       title: "Create Story"
       name: "Name"
@@ -130,6 +131,10 @@ en:
       text2: "total view: "
       text3: "Categories: "
       chapter: "Chapter "
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
   date_format: "%d/%m/%Y"
   categories:
     index:
@@ -185,3 +190,7 @@ en:
       text1: "Intro: "
       text3: "Categories: "
       text2: "total view: "
+  follows:
+    index:
+      title: "Follows"
+      danger: "Login to use follows."
