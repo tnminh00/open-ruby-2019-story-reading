@@ -1143,12 +1143,8 @@ footer .copy-right .share span:hover {
   margin-top: -17px;
 }
 
-.search {
-  margin-bottom: 50px;
-}
-
 .fa-search {
-  margin-right: 22%;
+  margin-right: 40%;
   margin-top: 8px;
 }
 
@@ -1196,4 +1192,62 @@ tr:hover .tooltipintro {
 
 #chapter_story_id {
   height: auto;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 300px;
+  overflow-x: hidden;
+}
+
+.search-form {
+  display: table;
+  width: 300px;
+  background-color: $white;
+  padding: 0;
+  .form-group {
+    display: table-cell;
+    width: 100%;
+    .form-control {
+      width: 100%;
+    }
+  }
+  button {
+    display: table-cell;
+    width: 70px;
+  }
+}
+
+.dropdown-menu {
+  padding: 0;
+  border: none;
+  width: 100%;
+}
+
+
+li.search-item {
+  height: 90px;
+  overflow: hidden;
+  padding: 5px;
+  &:hover {
+    background-color: $gray3;
+    cursor:pointer;
+  }
+  a:link {
+   color: $blue;
+  }
+  img {
+    height: 80px;
+  }
+  .intro {
+    overflow: hidden;
+    width: 350px;
+    line-height: 1.5;
+  }
+}
+
+#livesearch {
+  a {
+    color: $gray;
+  }
 }

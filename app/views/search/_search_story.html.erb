@@ -1,0 +1,18 @@
+<% @stories.each do |search_story| %>
+  <li class="search-item">
+    <%= link_to search_story do %>
+      <div class="col-md-3">
+        <%= image_tag Settings.story_image %>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <strong><%= search_story.name %></strong> - <%= search_story.author %>
+        </div>
+        <div class="row">
+          <div class="intro"><%= search_story.introduction %></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    <% end %>
+  </li>
+<% end %>

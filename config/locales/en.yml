@@ -55,6 +55,8 @@ en:
     error_messages:
       form: "The form contains"
       error: "error"
+    form_search:
+      search: "Search..."
   sessions:
     new:
       title: "My Account / Login"
@@ -144,8 +146,11 @@ en:
       danger: "Category not found"
   search:
     index:
-      title: "Stories"
+      title: "Search: "
       search: "Search..."
+    search:
+      results: "No results for %{search}"
+      more: "See more %{size} for %{search}"
   chapters:
     index:
       management: "Management"
