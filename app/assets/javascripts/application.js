@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery3
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require bootstrap-sprockets
 //= require custom
 //= require semantic.min

@@ -1251,3 +1251,22 @@ li.search-item {
     color: $gray;
   }
 }
+
+#stories-table_wrapper {
+  width: 1180px;
+}
+
+.dataTables_length {
+  select {
+    background-color: $white;
+    border-radius: 5px;
+  }
+}
+
+.dataTables_filter {
+  input {
+    border: 1.2px solid $gray;
+    border-radius: 5px;
+    height: 28px;
+  }
+}
