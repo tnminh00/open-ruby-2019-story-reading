@@ -1,0 +1,15 @@
+<%= form_tag stories_path, method: :get, id:"sort_form", class: "col-md-7 mb-lg-5 sort" do %>
+  <div class="col-md-5">
+    <%= label_tag t(".order_by") %>
+    <%= select_tag :sort, options_for_select(["rating", "follow", "view", "name"], "name"),
+      class: "form-control col-md-12" %>
+  </div>
+
+  <div class="col-md-5">
+    <%= label_tag t(".category") %>
+    <%= select_tag :category, options_from_collection_for_select(Category.all, "id", "name"),
+      class: "form-control col-md-12", include_blank: "All" %>
+  </div>
+  
+  <%= submit_tag t(".filter"), class: "btn btn-small mt-4" %>
+<% end %>

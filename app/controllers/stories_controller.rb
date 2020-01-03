@@ -3,12 +3,25 @@ class StoriesController < ApplicationController
   before_action :load_story, except: %i(index new create)
 
   def index
-    @stories = Story.page(params[:page]).per Settings.perpage
+    @stories = Story.relative_intro
+    sort = Story::ORDERS.include?(params[:sort]) ? params[:sort] : :name
+
+    unless params[:category].blank?
+      categories = Category.find_by id: params[:category]
+      if categories
+        @stories = categories.stories
+      else
+        flash[:danger] = t ".no_category"
+        redirect_to stories_path
+      end
+    end
+      
+    @stories = @stories.send("order_by_#{sort}").page(params[:page]).per Settings.perpage
   end
 
   def show
     @chapters = @story.chapters.order_chapter.page(params[:page]).per Settings.perpage
-    @categories = @story.categories.page(params[:page]).per Settings.perpage 
+    @categories = @story.categories.page(params[:page]).per Settings.perpage
   end
 
   def destroy
