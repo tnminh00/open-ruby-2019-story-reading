@@ -374,7 +374,7 @@ header .cart .quntity {
 }
 
 .recent-book-sec .item .hover .intro {
-  height: 170px;
+  height: 105px;
   overflow: hidden;
 }
 
@@ -1269,4 +1269,12 @@ li.search-item {
     border-radius: 5px;
     height: 28px;
   }
+}
+
+#sort_form select {
+  height: auto;
+}
+
+#livesearch_form {
+  margin-top: 25px;
 }

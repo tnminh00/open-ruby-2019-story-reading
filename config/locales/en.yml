@@ -57,6 +57,10 @@ en:
       error: "error"
     form_search:
       search: "Search..."
+    form_sort:
+      order_by: "Order by"
+      category: "Category"
+      filter: "Filter"
   sessions:
     new:
       title: "My Account / Login"
@@ -75,6 +79,7 @@ en:
       title: "All Stories"
       new: "Add new story"
       search: "Search Stories, Authors, ...."
+      no_category: "Category not found."
     show:
       all_stories: "All Stories"
       home: "Home"
@@ -129,10 +134,13 @@ en:
     create:
       success: "Story created."
     story:
-      text1: "Intro: "
-      text2: "total view: "
-      text3: "Categories: "
+      intro: "Intro: "
+      total_view: "total view: "
+      categories: "Categories: "
       chapter: "Chapter "
+      no_rates: "No rates"
+      follow: "Follows: "
+      rate: "Rating: "
     follow:
       follow: "Follow"
     unfollow:
