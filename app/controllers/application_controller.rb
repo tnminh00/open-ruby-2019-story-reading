@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  before_action :load_noti_user
   
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -27,5 +28,13 @@ class ApplicationController < ActionController::Base
     
     flash[:danger] = t ".not_found"
     redirect_to root_path
+  end
+
+  def load_noti_user
+    @notifications = current_user.notifications.order_by_create if logged_in?
+  end
+
+  def render_notification notification
+    ApplicationController.renderer.render partial: "notifications/notification", locals: { notification: notification }
   end
 end

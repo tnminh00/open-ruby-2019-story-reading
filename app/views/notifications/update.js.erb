@@ -1,0 +1,2 @@
+$('.noti').html('<%= j render "notifications/notification_center", notifications: @notifications %>')
+$('#counter').html('<%= @notifications.unseen.size %>')

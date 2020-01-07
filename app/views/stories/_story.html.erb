@@ -3,12 +3,14 @@
     <div class="item">
       <div class="picture">
         <%= image_tag Settings.story_image %>
-        <span class="time">
-          <%= time_ago_in_words(story.chapters.last.created_at) %>
-        </span>
-        <span class="chap">
-          <%= t ".chapter" %><%= story.chapters.maximum("chapter_number") %>
-        </span>
+        <% if story.chapters.exists? %>
+          <span class="time">
+            <%= time_ago_in_words story.chapters.last.created_at %>
+          </span>
+          <span class="chap">
+            <%= t ".chapter" %><%= story.chapters.maximum("chapter_number") %>
+          </span>
+        <% end %>
       </div>
       <h3><span class="name"><%= story.name %></span></h3>
       <h6><%= story.author %></h6>

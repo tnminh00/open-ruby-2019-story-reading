@@ -45,7 +45,7 @@ class ChaptersController < ApplicationController
   end
 
   def create
-    @story = Story.find_by(id: params[:story][:id])
+    users_follow = @story.users
     @chapter = @story.chapters.new chapter_params
 
     if @story.chapters.by_chapter_number(chapter_params[:chapter_number]).exists?
@@ -54,6 +54,13 @@ class ChaptersController < ApplicationController
     elsif @chapter.save
       flash[:success] = t ".success"
       redirect_to chapters_story_path @chapter.story
+      if users_follow.exists?
+        users_follow.each do |user|
+          notification = user.notifications.create event: t(".noti", story: @story.name, number: chapter_params[:chapter_number])
+          ActionCable.server.broadcast "notification_channel_#{user.id}",
+            notification: render_notification(notification), counter: user.notifications.unseen.size
+        end
+      end
     else
       render :new
     end

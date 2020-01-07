@@ -45,7 +45,7 @@ class StoriesController < ApplicationController
 
     if @story.save
       flash[:success] = t ".success"
-      redirect_to story_path(@story)
+      redirect_to management_path
     else
       render :new
     end

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :stories, through: :follows
   has_many :histories
   has_many :chapters, through: :histories
+  has_many :notifications
   ratyrate_rater
   validates :name, presence: true, length: {maximum: Settings.name.maximum}
   validates :email, presence: true, length: {maximum: Settings.email.maximum}, 
