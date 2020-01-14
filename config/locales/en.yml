@@ -133,6 +133,7 @@ en:
       success: "Story updated."
     create:
       success: "Story created."
+      noti: "New story %{story}"
     story:
       intro: "Intro: "
       total_view: "total view: "
@@ -202,6 +203,7 @@ en:
     create:
       success: "Chapter created."
       unsuccess: "Chapter existed."
+      noti: "%{story} has new chapter %{number}"
   history:
     index:
       title: "History"

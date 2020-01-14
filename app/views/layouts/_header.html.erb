@@ -30,6 +30,18 @@
           </ul>
           <ul class="navbar-nav navbar-right">
             <% if logged_in? %>
+              <li class="dropdown" id="noti">
+                <%= link_to "#", class: "dropdown-toggle nav-link",
+                  data: {toggle: "dropdown"} do %>
+                    <span class="fa fa-bell" id="counter">
+                      <%= @notifications.unseen.size %>
+                    </span>
+                <% end %>
+                <ul class="dropdown-menu noti">
+                  <%= render "notifications/notification_center",
+                    notifications: @notifications %>
+                </ul>
+              </li>
               <% if current_user.is_admin %>
                 <li class="navbar-item">
                   <%= link_to current_user.name, management_path, class: "nav-link" %>
