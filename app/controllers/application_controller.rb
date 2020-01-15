@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_noti_user
-    @notifications = current_user.notifications.order_by_create if logged_in?
+    @notifications = current_user.notifications.order_by_create if current_user
   end
 
   def render_notification notification

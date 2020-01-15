@@ -37,4 +37,26 @@ $(document).on('turbolinks:load', function() {
     dom_id: '#livesearch_dom',
     loading_css: '#livesearch_loading',
   });
+
+  if (window.document.getElementById("chapter_content")){
+    var history_pos = $('#position').val();
+    if (history_pos > 0){
+      confirm = confirm("Do you want continue reading?");
+      if (confirm){
+        $('html,body').animate({scrollTop: history_pos}, 400);
+      }
+    }
+    var chapter = window.location.pathname.split("/")[2];
+
+    var update = setInterval(function(){
+      var pos = $('html,body').scrollTop();
+      console.log(pos);
+      $.ajax({
+        type: 'put',
+        url: '/updatehistory',
+        dataType: 'json',
+        data: {pos: pos, chapter: chapter}
+      })
+    },3000);
+  }
 });

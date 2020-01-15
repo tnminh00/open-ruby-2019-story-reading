@@ -5,8 +5,9 @@
     <span class="breadcrumb-item"><%= t ".chapter" %> <%= @chapter.chapter_number %>: <%= @chapter.name %></span>
   </div>
 </div>
-<section class="product-sec">
-  <div class="container">
+<section class="product-sec" data-turbolinks="false">
+  <div class="container" id="chapter_content">
+  <div><%= hidden_field_tag :position, @history.position %></div>
     <%= render "next_previous_btn" %>
     <h1><%= t ".chapter" %> <%= @chapter.chapter_number %>: <%= @chapter.name %></h1>
     <div class="row">

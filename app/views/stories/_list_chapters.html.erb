@@ -3,10 +3,13 @@
     <th><%= t ".chapter" %></th>
     <th><%= t ".name" %></th>
     <th><%= t ".update_time" %></th>
-    <% if current_user&.is_admin? %>
-      <th><%= t ".action" %></th>
-    <% end %>
   </tr>
-  <%= render @chapters %>
+  <% @chapters.each do |chapter| %>
+    <tr>
+      <td><%= chapter.chapter_number %>
+      <td><%= link_to chapter.name, chapter_path(chapter.id) %></td>
+      <td><%= chapter.date_time %></td>
+    </tr>
+  <% end %>
 </table>
 <%= paginate @chapters, theme: Settings.theme %>

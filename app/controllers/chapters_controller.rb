@@ -16,6 +16,10 @@ class ChaptersController < ApplicationController
   def show
     Story.increment_counter :total_view, @chapter.story_id
     update_history
+
+    if current_user
+      @history = current_user.histories.find_by(chapter_id: params[:id])
+    end
   end
 
   def destroy
@@ -93,7 +97,7 @@ class ChaptersController < ApplicationController
   def update_history
     if current_user
       related_chapter_ids = @chapter.story.chapter_ids
-      history_chapter_ids = History.pluck :chapter_id
+      history_chapter_ids = current_user.histories.pluck :chapter_id
       history_story_ids = Chapter.where(id: history_chapter_ids).pluck :story_id 
 
       unless history_story_ids.detect{|id| id == @chapter.story_id}
