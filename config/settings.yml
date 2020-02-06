@@ -19,3 +19,5 @@ story:
   name_maximum: 100
   author_maximum: 50
   introduction_maximum: 500
+comments: 5
+cmt_type: "Story"

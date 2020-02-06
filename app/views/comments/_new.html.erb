@@ -1,0 +1,16 @@
+<div class="container pb-cmnt-container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-body">
+          <%= form_with url: comments_path do |f| %>
+            <%= hidden_field_tag :story, @story.id %>
+            <%= f.text_area :content, class: "pb-cmnt-textarea",
+              id: "comment_content", placeholder: t(".placeholder_comment") %>
+            <%= f.submit :comment, class: "btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

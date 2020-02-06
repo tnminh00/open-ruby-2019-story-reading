@@ -20,8 +20,13 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @chapters = @story.chapters.order_chapter.page(params[:page]).per Settings.perpage
+    @chapters = @story.chapters.order_chapter.page(params[:chapter_page]).per Settings.perpage
     @categories = @story.categories.page(params[:page]).per Settings.perpage
+    @comments = @story.comments.order_by_create.page(params[:comment_page]).per Settings.comments
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
