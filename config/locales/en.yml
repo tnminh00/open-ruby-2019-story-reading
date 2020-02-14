@@ -95,6 +95,7 @@ en:
       edit: "Edit"
       delete: "Delete"
       add_chapter: "Add chapter"
+      comment: "Comment"
     destroy:
       del_success: "Delete story success."
       del_fail: "Delete story fail."
@@ -215,3 +216,9 @@ en:
     index:
       title: "Follows"
       danger: "Login to use follows."
+  comments:
+    fail: "Fail"
+    new:
+      placeholder_comment: "Write comment here."
+    comment:
+      confirm: "Are you sure?"

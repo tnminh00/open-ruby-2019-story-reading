@@ -37,4 +37,11 @@ $(document).on('turbolinks:load', function() {
     dom_id: '#livesearch_dom',
     loading_css: '#livesearch_loading',
   });
+
+  $(window).on('scroll', function(){
+    more_comments_url = $('#infinite-scrolling').children().find('.next').children().attr('href');
+    if (more_comments_url && $(window).scrollTop() === $(document).height() - $(window).height()) {
+      $.getScript(more_comments_url);
+    }
+  });
 });

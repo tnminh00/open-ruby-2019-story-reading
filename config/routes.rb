@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   resources :categories, only: %i(index show)
   resources :follows, only: %i(index create destroy)
   resources :notifications, only: %i(destroy update)
+  resources :comments, only: %i(create destroy)
   mount ActionCable.server => '/cable'
 end

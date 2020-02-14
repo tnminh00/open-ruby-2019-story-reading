@@ -1,0 +1,7 @@
+$('#all_comment').append('<%= j render @comments %>');
+<% if @comments.next_page %>
+  $('#infinite-scrolling').children().replaceWith('<%= j paginate @comments, param_name: "comment_page" %>');
+<% else %>
+  $(window).off('scroll');
+  $('#infinite-scrolling').children().remove();
+<% end %>

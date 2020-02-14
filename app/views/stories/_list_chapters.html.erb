@@ -9,4 +9,4 @@
   </tr>
   <%= render @chapters %>
 </table>
-<%= paginate @chapters, theme: Settings.theme %>
+<%= paginate @chapters, theme: Settings.theme, param_name: "chapter_page" %>

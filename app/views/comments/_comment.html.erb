@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="media comment-box">
+      <div class="media-body">
+        <% hidden_field_tag :story_id, comment.commentable_id if comment.commentable_type == Settings.cmt_type %>
+        <h4 class="media-heading">
+          <%= comment.user_name %>
+          <small> - <%= time_ago_in_words comment.created_at %></small>
+          <% if current_user.id == comment.user_id %>
+            <%= link_to t(".delete"), comment, remote: true, method: :delete,
+              id: "delete-comment", data: {confirm: t(".confirm")} %>
+          <% end %>
+        </h4>
+        <p><%= comment.content %></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,3 +27,14 @@
     </div>
   </div>
 </section>
+<% if current_user %>
+  <div id="new_comment">
+    <%= render "comments/new" %>
+  </div>
+  <div id="all_comment">
+    <%= render @comments %>
+  </div>
+  <div id="infinite-scrolling" class="hidden">
+    <%= paginate @comments, param_name: "comment_page" %>
+  </div>
+<% end %>
