@@ -21,3 +21,10 @@ story:
   introduction_maximum: 500
 comments: 5
 cmt_type: "Story"
+mailer:
+  mailer: "mailer"
+  host: "localhost:3000"
+  protocol: "http"
+  address: "smtp.gmail.com"
+  port: 587
+  authentication: "plain"

@@ -34,12 +34,12 @@
                 <%= link_to "#", class: "dropdown-toggle nav-link",
                   data: {toggle: "dropdown"} do %>
                     <span class="fa fa-bell" id="counter">
-                      <%= @notifications.unseen.size %>
+                      <%= @notifications&.unseen&.size %>
                     </span>
                 <% end %>
                 <ul class="dropdown-menu noti">
                   <%= render "notifications/notification_center",
-                    notifications: @notifications %>
+                    notifications: @notifications if @notifications %>
                 </ul>
               </li>
               <% if current_user.is_admin %>
