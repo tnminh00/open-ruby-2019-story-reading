@@ -222,3 +222,13 @@ en:
       placeholder_comment: "Write comment here."
     comment:
       confirm: "Are you sure?"
+  noti_mailer:
+    notification:
+      text1: "Hi"
+      text2: "has new update chapter"
+      text3: "Reading now:"
+      new_update: " has new update"
+    weekly_noti:
+      link: "Go now"
+      text: "So many stories has been updated."
+      subject: "StoryStory"

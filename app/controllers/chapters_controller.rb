@@ -56,9 +56,12 @@ class ChaptersController < ApplicationController
       redirect_to chapters_story_path @chapter.story
       if users_follow.exists?
         users_follow.each do |user|
-          notification = user.notifications.create event: t(".noti", story: @story.name, number: chapter_params[:chapter_number])
+          notification = user.notifications.create event: t(".noti",
+            story: @story.name, number: chapter_params[:chapter_number])
           ActionCable.server.broadcast "notification_channel_#{user.id}",
-            notification: render_notification(notification), counter: user.notifications.unseen.size
+            notification: render_notification(notification),
+              counter: user.notifications.unseen.size
+          NotiWorker.perform_in 30.seconds, user.id, @story.id
         end
       end
     else
