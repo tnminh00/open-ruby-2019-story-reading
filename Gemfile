@@ -29,6 +29,10 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "whenever"
 gem "figaro"
 gem "sidekiq"
+gem "sidekiq-status"
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"
+gem "rubyzip"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

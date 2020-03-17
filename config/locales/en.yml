@@ -113,6 +113,8 @@ en:
       rating: "Rating: "
       votes: "Votes: "
       follow: "Follow: "
+      download: "Download"
+      wait: "Wait a minute"
     new:
       title: "Create Story"
       name: "Name"
@@ -205,6 +207,8 @@ en:
       success: "Chapter created."
       unsuccess: "Chapter existed."
       noti: "%{story} has new chapter %{number}"
+    chapter:
+      download: "Download"
   history:
     index:
       title: "History"

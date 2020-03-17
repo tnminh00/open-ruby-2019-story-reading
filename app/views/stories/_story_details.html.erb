@@ -32,6 +32,9 @@
     <% end %>
   </li>
 </ul>
-<div class="btn-sec">
-  <%= render "follow_form" %>
-</div>
+<% if logged_in? %>
+  <div class="btn-sec col-md-3">
+    <%= render "follow_form" %>
+  </div>
+  <%= link_to t(".download"), export_story_path(@story), class: "btn", id: "download", remote: true %>
+<% end %>

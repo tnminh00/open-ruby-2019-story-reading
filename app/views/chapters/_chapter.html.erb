@@ -2,11 +2,9 @@
   <td><%= chapter.chapter_number %>
   <td><%= link_to chapter.name, chapter_path(chapter.id) %></td>
   <td><%= chapter.date_time %></td>
-  <% if current_user&.is_admin? %>
+  <% if logged_in? %>
     <td>
-      <%= link_to t(".edit"), edit_chapter_path(chapter), class: "btn btn-small blue-btn" %>
-      <%= link_to t(".delete"), chapter, method: :delete, class: "btn btn-small red-btn",
-        data: {confirm: t(".confirm")} %>
+      <%= link_to t(".download"), download_chapter_path(chapter, format: :pdf) %></td>
     </td>
   <% end %>
 </tr>

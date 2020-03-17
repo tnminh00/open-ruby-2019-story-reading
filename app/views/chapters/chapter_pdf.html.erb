@@ -1,0 +1,9 @@
+<section class="product-sec">
+  <div class="container">
+    <h1><%= chapter.story_name %></h1>
+    <h2><%= t ".chapter" %> <%= chapter.chapter_number %>: <%= chapter.name %></h2>
+    <div class="row mt-4">
+      <p class="pdf"><%= chapter.content.html_safe %></p>
+    </div> 
+  </div>
+</section>
