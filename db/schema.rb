@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_015552) do
+ActiveRecord::Schema.define(version: 2020_03_23_035939) do
 
   create_table "average_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "rater_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_01_06_015552) do
     t.datetime "updated_at", null: false
     t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
+  end
+
+  create_table "bot_actions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "user_input"
+    t.string "bot_response"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bot_actions_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -121,11 +130,17 @@ ActiveRecord::Schema.define(version: 2020_01_06_015552) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password_digest"
+    t.string "encrypted_password"
     t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "remember_digest"
+    t.datetime "remember_created_at"
+    t.string "provider"
+    t.string "uid"
+    t.text "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "bot_actions", "users"
 end

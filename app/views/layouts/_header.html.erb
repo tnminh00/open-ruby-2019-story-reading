@@ -19,7 +19,7 @@
             <li class="navbar-item">
               <%= link_to t(".categories"), categories_path, class: "nav-link" %>
             </li>
-            <% if logged_in? %>
+            <% if user_signed_in? %>
               <li class="navbar-item">
                 <%= link_to t(".follows"), follows_path, class: "nav-link" %>
               </li>
@@ -29,7 +29,7 @@
             <% end %>
           </ul>
           <ul class="navbar-nav navbar-right">
-            <% if logged_in? %>
+            <% if user_signed_in? %>
               <li class="dropdown" id="noti">
                 <%= link_to "#", class: "dropdown-toggle nav-link",
                   data: {toggle: "dropdown"} do %>
@@ -52,11 +52,12 @@
                 </li>
               <% end %>
               <li class="navbar-item">
-                <%= link_to t(".logout"), logout_path, method: :delete, class: "nav-link" %>
+                <%= link_to t(".logout"), destroy_user_session_path,
+                  method: :delete, class: "nav-link" %>
               </li>
             <% else %>
               <li class="navbar-item">
-                <%= link_to t(".login"), login_path, class: "nav-link" %>
+                <%= link_to t(".login"), new_user_session_path, class: "nav-link" %>
               </li>
             <% end %>
           </ul>

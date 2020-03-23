@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
   before_action :load_noti_user
   
   def set_locale
@@ -17,7 +16,7 @@ class ApplicationController < ActionController::Base
     if current_user
       @chapters = current_user.chapters.page(params[:page]).per Settings.perpage
     else
-      redirect_to login_path
+      redirect_to new_user_session_path
     end
   end
 
@@ -40,7 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_noti_user
-    @notifications = current_user.notifications.order_by_create if logged_in?
+    @notifications = current_user.notifications.order_by_create if user_signed_in?
   end
 
   def render_notification notification
