@@ -75,15 +75,6 @@ class ChaptersController < ApplicationController
     params.require(:chapter).permit Chapter::CHAPTER_PARAMS
   end
 
-  def load_chapter
-    @chapter = Chapter.find_by id: params[:id]
-
-    return if @chapter
-
-    flash[:danger] = t ".danger"
-    redirect_to stories_path
-  end
-
   def load_story
     @story = Story.find_by id: params[:story][:id]
 

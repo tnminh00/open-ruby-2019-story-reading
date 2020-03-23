@@ -28,3 +28,11 @@ mailer:
   address: "smtp.gmail.com"
   port: 587
   authentication: "plain"
+pdf_option:
+  layout: "pdf"
+  encoding: "UTF-8"
+  margin_top: 15
+  margin_bottom: 0
+  margin_left: 10
+  margin_right: 10
+  disposition: "attachment"

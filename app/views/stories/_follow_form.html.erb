@@ -1,9 +1,7 @@
-<% if current_user %>
-  <div id="follow_form">
-    <% if current_user.follow? @story %>
-      <%= render "unfollow" %>
-    <% else %>
-      <%= render "follow" %>
-    <% end %>
-  </div>
-<% end %>
+<div id="follow_form">
+  <% if current_user.follow? @story %>
+    <%= render "unfollow" %>
+  <% else %>
+    <%= render "follow" %>
+  <% end %>
+</div>
