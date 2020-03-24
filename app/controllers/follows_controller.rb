@@ -4,7 +4,7 @@ class FollowsController < ApplicationController
       @stories = current_user.stories.page(params[:page]).per Settings.perpage
     else
       flash[:danger] = t ".danger"
-      redirect_to login_path
+      redirect_to new_user_session_path
     end
   end
 

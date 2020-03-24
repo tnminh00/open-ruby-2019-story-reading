@@ -4,10 +4,6 @@ require "sidekiq-status/web"
 Rails.application.routes.draw do
   root "home_page#home"
 
-  get "/signup", to: "users#new"
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
   get "/history", to: "history#index"
   get "/management", to: "home_page#management"
   post "/rate", to: "rater#create", as: "rate"
@@ -17,7 +13,7 @@ Rails.application.routes.draw do
   get "/export_status", to: "download#export_status"
   get "/download/story/:id", to: "download#story"
 
-  resources :users
+  devise_for :users, controllers: {registrations: "users/registrations"}
   resources :stories do
     member do
       get "chapters", to: "chapters#index"

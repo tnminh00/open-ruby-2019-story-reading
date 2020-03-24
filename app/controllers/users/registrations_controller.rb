@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
   end
@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = t ".success"
-      redirect_to login_path
+      sign_in @user
+      redirect_to root_path
     else
       render :new
     end
