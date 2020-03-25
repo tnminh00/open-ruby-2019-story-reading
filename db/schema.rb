@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_035939) do
+ActiveRecord::Schema.define(version: 2020_03_25_015207) do
 
   create_table "average_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "rater_id"
@@ -139,6 +139,9 @@ ActiveRecord::Schema.define(version: 2020_03_23_035939) do
     t.string "uid"
     t.text "oauth_token"
     t.datetime "oauth_expires_at"
+    t.integer "failed_attempts", default: 0
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

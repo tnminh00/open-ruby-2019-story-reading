@@ -1,5 +1,25 @@
 require 'rails_helper'
 
+RSpec.shared_examples "password format invalid" do |pass|
+  it "contain not enough 3 of the following 4: a lowercase letter, an uppercase letter, a digit, a symbol" do
+    FactoryBot.build(:user, password: pass,
+      password_confirmation: pass).should_not be_valid
+  end
+end
+
+RSpec.shared_examples "password format valid" do |pass|
+  it "contain 3 of the following 4: a lowercase letter, an uppercase letter, a digit, a symbol" do
+    FactoryBot.build(:user, password: pass,
+      password_confirmation: pass).should be_valid
+  end
+end
+
+RSpec.shared_examples "password different" do
+  it "must be different email or name" do
+    expect(user).not_to be_valid
+  end
+end
+
 RSpec.describe User, type: :model do
   describe "Validations" do
     subject{FactoryBot.create :user}
@@ -31,68 +51,9 @@ RSpec.describe User, type: :model do
     context "Email invalid uniqueness" do
       it{should validate_uniqueness_of(:email).ignoring_case_sensitivity}
     end
-
-    context "Password invalid presence" do
-      it{should have_secure_password}
-    end
   
     context "Password invalid min lenth" do
       it{should validate_length_of(:password).is_at_least(Settings.password.minimum)}
-    end
-
-    context "Before save" do
-      it "downcase email" do
-        user = FactoryBot.create(:user, email: "TH@gmail.com")
-        expect(user.email).to eq "th@gmail.com"
-      end
-    end
-
-    describe "Instance method" do
-      let!(:user){FactoryBot.create :user}
-
-      context "#remember" do
-        before{user.remember}
-
-        it "Remember success" do
-          expect(user.remember_digest).not_to be_nil
-        end
-      end
-
-      context "#forget" do
-        before do
-          user.remember
-          user.forget
-        end
-        
-        it "Forget sucess" do
-          expect(user.remember_digest).to be_nil
-        end
-      end
-
-      context "#authenticated?" do
-        it "Authenticated true" do
-          user.remember
-          expect(user.authenticated? user.remember_token).to be true
-        end
-
-        it "Authenticated false" do
-          expect(user.authenticated? user.remember_token).not_to be true
-        end
-      end
-    end
-
-    describe "Class method" do    
-      context ".new_token" do
-        it "new token true" do
-          expect(described_class.new_token).not_to be_nil
-        end
-      end
-
-      context ".digest" do
-        it "create digest token" do
-          expect(described_class.digest(described_class.new_token)).not_to be_nil
-        end
-      end
     end
 
     describe "Associations" do
@@ -102,6 +63,35 @@ RSpec.describe User, type: :model do
 
       context "Has many chapters" do
         it{should have_many(:chapters).through(:histories)}
+      end
+    end
+  end
+
+  describe "Password Validations" do
+    context "Password" do
+      include_examples "password different" do
+        let!(:user){FactoryBot.build :user, password: "Abc123",
+          password_confirmation: "Abc123", name: "Abc123"}
+      end
+
+      include_examples "password different" do
+        let!(:user){FactoryBot.build :user, password: "user1@gmail.com",
+          password_confirmation: "user1@gmail.com", email: "user1@gmail.com"}
+      end
+    end
+
+    context "Password format" do
+      password_format_invalid = ["aaaaaaa", "aaaAAAA", "aa11111", "AA11111",
+        "@@@@AAA", "AAAAAAA", "1111111", "@@@@@@@", "aaa@@@@", "@@@1111"]
+      password_format_valid = ["Abc123", "ABC@123", "abc@123",
+        "Abc@123", "Abc@@@"]
+
+      password_format_invalid.each do |pass|
+        include_examples "password format invalid", pass
+      end
+
+      password_format_valid.each do |pass|
+        include_examples "password format valid", pass
       end
     end
   end
