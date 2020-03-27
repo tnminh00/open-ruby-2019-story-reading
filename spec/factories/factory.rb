@@ -3,8 +3,8 @@
   factory :user do
     sequence(:name) {|n| "Name #{n}"}
     sequence(:email) {|n| "test-#{n}@gmail.com"}
-    password {"password"}
-    password_confirmation {"password"}
+    password {"Abc@123"}
+    password_confirmation {"Abc@123"}
 
     factory :user_with_chapter do
       after(:create) do |user|

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :rememberable,
+    :validatable, :lockable
 
   has_many :comments
   has_many :follows
@@ -10,6 +11,9 @@ class User < ApplicationRecord
   ratyrate_rater
   validates :name, presence: true, length: {maximum: Settings.name.maximum}
   validates :email, length: {maximum: Settings.email.maximum}
+  validates :password, format: {with: Settings.password_format,
+    message: I18n.t("devise.registrations.new.password_format")}
+  validate :password_diff_email_or_name
 
   USER_PARAMS = %i(name email password password_confirmation).freeze
 
@@ -23,5 +27,11 @@ class User < ApplicationRecord
 
   def follow? story
     stories.include? story
+  end
+
+  def password_diff_email_or_name
+    if password == name || password == email
+      errors.add :password, I18n.t("devise.registrations.new.error_password")
+    end
   end
 end

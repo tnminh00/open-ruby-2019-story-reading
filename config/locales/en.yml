@@ -256,6 +256,8 @@ en:
         create: "Create my account"
         login: "Login here"
         text: "Registered?"
+        password_format: "must contain 3 of the following 4: a lowercase letter, an uppercase letter, a digit, a symbol"
+        error_password: "must be different email or name"
       create:
         success: "Sign up success. Login please."
     sessions:

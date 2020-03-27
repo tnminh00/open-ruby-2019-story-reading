@@ -1,4 +1,7 @@
 valid_email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+password_format: !ruby/regexp /((?:(?=.*[a-z])(?=.*[A-Z])(?=.*[[:^alnum:]])|
+  (?=.*\d)(?=.*[A-Z])(?=.*[[:^alnum:]])|(?=.*\d)(?=.*[a-z])(?=.*[[:^alnum:]])|
+    (?=.*\d)(?=.*[a-z])(?=.*[A-Z])).*)/x
 email:
   maximum: 255
 name:
