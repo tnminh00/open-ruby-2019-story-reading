@@ -100,6 +100,9 @@ en:
       author: "Author"
       introduction: "Introduction"
       categories: "Categories"
+      type: "Type"
+      free: "Free"
+      sale: "Sale"
     edit:
       title: "Edit story"
       update: "Update"
@@ -151,6 +154,7 @@ en:
       chapter: "Chapter"
       danger: "Chapter not found"
       title: "Storyx2"
+      paid: "Buy this book to read."
     destroy:
       del_success: "Delete chapter success."
       del_fail: "Delete chapter fail."

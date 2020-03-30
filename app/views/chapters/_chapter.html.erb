@@ -2,9 +2,9 @@
   <td><%= chapter.chapter_number %>
   <td><%= link_to chapter.name, chapter_path(chapter.id) %></td>
   <td><%= chapter.date_time %></td>
-  <% if logged_in? %>
+  <% if user_signed_in? %>
     <td>
-      <%= link_to t(".download"), download_chapter_path(chapter, format: :pdf) %></td>
+      <%= link_to t(".download"), download_chapter_path(chapter, format: :pdf) %>
     </td>
   <% end %>
 </tr>

@@ -1,5 +1,6 @@
-User.create(name: "admin", email: "admin@gmail.com", password: "123456", is_admin: true)
-User.create(name: "user", email: "user@gmail.com", password: "123456")
+User.create(name: "admin", email: "admin@gmail.com", password: "Abc123", is_admin: true)
+User.create(name: "user1", email: "user1@gmail.com", password: "Abc123")
+User.create(name: "user2", email: "user2@gmail.com", password: "Abc123")
 100.times do |n|
   name = FFaker::Book.title
   author = FFaker::Name.name
@@ -25,4 +26,16 @@ Story.all.each do |s|
   sample = Category.all.sample Settings.sample
   s.category_stories.create category: sample.first
   s.category_stories.create category: sample.second
+end
+
+Story.where("id < 20").each do |s|
+  s.update_attributes sales_type: :sale
+end
+
+Story.where("id < 10").each do |s|
+  User.second.buy s 
+end
+
+Story.where("id between 10 and 20").each do |s|
+  User.third.buy s 
 end

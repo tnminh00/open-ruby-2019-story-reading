@@ -3,7 +3,7 @@
     <th><%= t ".chapter" %></th>
     <th><%= t ".name" %></th>
     <th><%= t ".update_time" %></th>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <th><%= t ".action" %></th>
     <% end %>
   </tr>
