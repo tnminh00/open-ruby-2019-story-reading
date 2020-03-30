@@ -29,13 +29,5 @@ Story.all.each do |s|
 end
 
 Story.where("id < 20").each do |s|
-  s.update_attributes sales_type: :sale
-end
-
-Story.where("id < 10").each do |s|
-  User.second.buy s 
-end
-
-Story.where("id between 10 and 20").each do |s|
-  User.third.buy s 
+  s.update_attributes sales_type: :sale, price: 5.99
 end

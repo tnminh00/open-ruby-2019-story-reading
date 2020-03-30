@@ -23,12 +23,9 @@ class User < ApplicationRecord
     stories << story
   end
 
-  def buy story
-    paid_stories << story
-  end
-
-  def buy? story
-    paid_stories.include? story
+  def paid? story
+    paid_stories.include?(story) && 
+      payments.where(story_id: story.id).last.status
   end
 
   def unfollow follow_relation

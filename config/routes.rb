@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/export/story/:id", to: "download#export_story", as: "export_story"
   get "/export_status", to: "download#export_status"
   get "/download/story/:id", to: "download#story"
+  post "/hook" => "payments#hook"
 
   devise_for :users, controllers: {registrations: "users/registrations"}
   resources :stories do
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   resources :follows, only: %i(index create destroy)
   resources :notifications, only: %i(destroy update)
   resources :comments, only: %i(create destroy)
+  resources :payments
   mount ActionCable.server => "/cable"
   mount Sidekiq::Web, at: "/sidekiq"
 end

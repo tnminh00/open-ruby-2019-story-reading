@@ -48,6 +48,8 @@ en:
       category: "Category"
       filter: "Filter"
   stories:
+    price:
+      invalid: "Invalid price"
     index:
       title: "All Stories"
       new: "Add new story"
@@ -295,3 +297,6 @@ en:
     registrations:
       create:
         success: "Sign up success."
+  payments:
+    create:
+      danger: "Something wrong."

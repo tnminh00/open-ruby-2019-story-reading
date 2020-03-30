@@ -14,9 +14,13 @@ class Story < ApplicationRecord
   ratyrate_rateable "rating"
 
   enum sales_type: {free: 0, sale: 1}
-  validates :name, presence: true, length: {maximum: Settings.story.name_maximum}
-  validates :author, presence: true, length: {maximum: Settings.story.author_maximum}
+  validates :name, presence: true,
+    length: {maximum: Settings.story.name_maximum}
+  validates :author, presence: true,
+    length: {maximum: Settings.story.author_maximum}
   validates :introduction, presence: true, length: {maximum: Settings.story.introduction_maximum}
+  validates :price, numericality: {greater_than: 0}, allow_nil: true
+  validate :invalid_price
 
   scope :order_by_name, -> {order name: :asc}
   scope :order_by_view, -> {order total_view: :desc}
@@ -30,5 +34,12 @@ class Story < ApplicationRecord
 
   def lastest_chapter
     chapters.lastest_chapter
+  end
+
+  def invalid_price
+    if (sales_type == "free" && price.present?) ||
+      (sales_type == "sale" && price.nil?)
+      errors.add :price, I18n.t("stories.price.invalid")
+    end
   end
 end

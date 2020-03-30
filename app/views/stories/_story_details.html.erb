@@ -33,8 +33,17 @@
   </li>
 </ul>
 <% if user_signed_in? %>
-  <div class="btn-sec col-md-3">
+  <div class="btn-sec col-md-2">
     <%= render "follow_form" %>
   </div>
-  <%= link_to t(".download"), export_story_path(@story), class: "btn", id: "download", remote: true %>
+  <div class="col-md-3">
+    <%= link_to t(".download"), export_story_path(@story),
+      class: "btn", id: "download", remote: true %>
+  </div>
+  <div class="col-md-3">
+    <% unless current_user.paid?(@story) || @story.free? %>
+      <%= link_to t(".buy"), payments_path(story_id: @story.id),
+        class: "btn", method: "post" %>
+    <% end %>
+  </div>
 <% end %>

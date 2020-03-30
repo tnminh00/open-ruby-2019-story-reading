@@ -15,7 +15,7 @@ class ChaptersController < ApplicationController
 
   def show
     story = @chapter.story
-    if current_user&.buy?(story) || story.free?
+    if current_user&.paid?(story) || story.free?
       Story.increment_counter :total_view, @chapter.story_id
       update_history
     else

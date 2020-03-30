@@ -39,3 +39,9 @@ pdf_option:
   margin_left: 10
   margin_right: 10
   disposition: "attachment"
+payment:
+  cmd: "_xclick"
+  paypal_host: https://www.sandbox.paypal.com
+  app_host: https://db44b62c.ngrok.io
+  quantity: 1
+  upload: 1
