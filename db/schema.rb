@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_015207) do
+ActiveRecord::Schema.define(version: 2020_03_30_022424) do
 
   create_table "average_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "rater_id"
@@ -21,15 +21,6 @@ ActiveRecord::Schema.define(version: 2020_03_25_015207) do
     t.datetime "updated_at", null: false
     t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
-  end
-
-  create_table "bot_actions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "user_input"
-    t.string "bot_response"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_bot_actions_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,6 +86,13 @@ ActiveRecord::Schema.define(version: 2020_03_25_015207) do
     t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
   end
 
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "story_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "rater_id"
     t.string "rateable_type"
@@ -125,6 +123,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_015207) do
     t.integer "total_view", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sales_type", default: 0
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -135,15 +134,10 @@ ActiveRecord::Schema.define(version: 2020_03_25_015207) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "remember_created_at"
-    t.string "provider"
-    t.string "uid"
-    t.text "oauth_token"
-    t.datetime "oauth_expires_at"
     t.integer "failed_attempts", default: 0
     t.string "unlock_token"
     t.datetime "locked_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "bot_actions", "users"
 end

@@ -1,5 +1,5 @@
 class Story < ApplicationRecord
-  STORY_PARAMS = %i(name author introduction).freeze
+  STORY_PARAMS = %i(name author introduction sales_type).freeze
   ORDERS = %i(name rating follow view).freeze
 
   has_many :chapters, dependent: :destroy
@@ -8,9 +8,12 @@ class Story < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :follows, dependent: :destroy
   has_many :users, through: :follows
+  has_many :payments
+  has_many :buyers, through: :payments, source: :user
   has_one :rate_average, -> { where dimension: "rating"}, as: :cacheable, class_name: RatingCache.name, dependent: :destroy
   ratyrate_rateable "rating"
 
+  enum sales_type: {free: 0, sale: 1}
   validates :name, presence: true, length: {maximum: Settings.story.name_maximum}
   validates :author, presence: true, length: {maximum: Settings.story.author_maximum}
   validates :introduction, presence: true, length: {maximum: Settings.story.introduction_maximum}

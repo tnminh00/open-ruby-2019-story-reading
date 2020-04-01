@@ -14,8 +14,14 @@ class ChaptersController < ApplicationController
   end
 
   def show
-    Story.increment_counter :total_view, @chapter.story_id
-    update_history
+    story = @chapter.story
+    if current_user&.buy?(story) || story.free?
+      Story.increment_counter :total_view, @chapter.story_id
+      update_history
+    else
+      flash[:warning] = t ".paid"
+      redirect_to story_path story
+    end
   end
 
   def destroy

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :histories
   has_many :chapters, through: :histories
   has_many :notifications
+  has_many :payments
+  has_many :paid_stories, through: :payments, source: :story
   ratyrate_rater
   validates :name, presence: true, length: {maximum: Settings.name.maximum}
   validates :email, length: {maximum: Settings.email.maximum}
@@ -19,6 +21,14 @@ class User < ApplicationRecord
 
   def follow story
     stories << story
+  end
+
+  def buy story
+    paid_stories << story
+  end
+
+  def buy? story
+    paid_stories.include? story
   end
 
   def unfollow follow_relation
